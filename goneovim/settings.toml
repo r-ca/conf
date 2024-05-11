@@ -1,8 +1,9 @@
 [Editor]
+MouseScrollingUnit = "pixel"
 
-Margin = 2
+LineToScroll = 3
 
-MouseScrollingUnit = "smart"
+WindowGeometryBasedOnFontmetrics = true
 
 Transparent = 0.8
 
