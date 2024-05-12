@@ -24,6 +24,10 @@ return {
                     on_attach = on_attach,
                 })
             end,
+
+            -- Javaは別で設定しているので
+            jdtls = function()
+            end,
         })
     end,
 }
