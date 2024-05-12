@@ -24,3 +24,6 @@ require('lazy').setup({
         { import = "colors" }
     }
 })
+
+-- set colorscheme
+vim.cmd("colorscheme ayu")
