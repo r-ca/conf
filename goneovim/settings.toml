@@ -5,10 +5,10 @@ LineToScroll = 3
 
 WindowGeometryBasedOnFontmetrics = true
 
-Transparent = 0.8
+Transparent = 1.0
 
 FontFamily = "JetBrainsMonoNL Nerd Font"
-FontSize = 10
+FontSize = 11
 
 DisableImeInNormal = true
 
