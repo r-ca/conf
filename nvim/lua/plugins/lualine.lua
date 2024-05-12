@@ -46,7 +46,7 @@ return {
                     { 'filetype', right_padding = 2 },
                 },
                 lualine_z = {
-                    { 'location', right_padding = 2 },
+                    { 'location', separator = { right = '' }, left_padding = 2 },
                 },
             }
         })
