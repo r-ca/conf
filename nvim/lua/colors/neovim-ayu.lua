@@ -1,5 +1,7 @@
 return {
     'Shatur/neovim-ayu',
-    setup = function()
+    setup = function({
+        mirage = true
+    })
     end,
 }
