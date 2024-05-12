@@ -23,8 +23,11 @@ return {
         local capabilities = require('lsp.external.handler').capabilities
         local extended_capabilities = require('jdtls').extendedClientCapabilities
         extended_capabilities.resolveAdditionalTextEditsSupport = true
-        local lombok_path = os.getenv('HOME') .. '/.config/nvim/lib/lombok*.jar'
-        local equinox_launcher = vim.fn.globpath(jdtls_path, 'org.eclipse.equinox.launcher_*.jar')[1]
+        local user_home = os.getenv('HOME')
+        local lombok_path = vim.fn.glob(user_home .. '/.config/nvim/lib/lombok*.jar')
+        local equinox_launcher = vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar')
+        -- local equinox_launcher = vim.fn.globpath(jdtls_path, 'org.eclipse.equinox.launcher_*.jar')[1]
+        -- local equinox_launcher = jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar'
         local config_os = function()
             if vim.fn.has('mac') == 1 then
                 return jdtls_path .. '/config_mac'
@@ -41,7 +44,7 @@ return {
             on_attach = on_attach,
             capabilities = capabilities,
             root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-            launcher_path = vim.fn.globpath(jdtls_path, 'org.eclipse.equinox.launcher_*.jar')[1],
+            -- launcher_path = vim.fn.globpath(jdtls_path, 'org.eclipse.equinox.launcher_*.jar')[1],
             single_file_support = true,
             flags = {
                 allow_incremental_sync = true,
@@ -110,6 +113,7 @@ return {
                 '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
             }
         }
+
         vim.api.nvim_create_augroup('java-ls',{ clear = true })
         vim.api.nvim_create_autocmd(
             {
