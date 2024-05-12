@@ -24,6 +24,7 @@ return {
         local extended_capabilities = require('jdtls').extendedClientCapabilities
         extended_capabilities.resolveAdditionalTextEditsSupport = true
         local lombok_path = os.getenv('HOME') .. '/.config/nvim/lib/lombok*.jar'
+        local equinox_launcher = vim.fn.globpath(jdtls_path, 'org.eclipse.equinox.launcher_*.jar')[1]
         local config_os = function()
             if vim.fn.has('mac') == 1 then
                 return jdtls_path .. '/config_mac'
@@ -101,7 +102,7 @@ return {
                 '-Dlog.level=ALL',
                 '-Xmx16g',
                 '-javaagent:' .. lombok_path,
-                '-jar', jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar',
+                '-jar', equinox_launcher,
                 '-configuration', config_os(),
                 '-data', workspace_dir,
                 '--add-modules=ALL-SYSTEM',
