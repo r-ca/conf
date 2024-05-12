@@ -9,11 +9,20 @@ return {
         local mason_lspconfig = require('mason-lspconfig')
         local lspconfig = require('lspconfig')
 
+        local capabilities = require('lsp.external.handler').capabilities;
+        local on_attach = function(client, bufnr)
+            require('lsp.external.handler').on_attach(client, bufnr)
+        end
+
         mason.setup()
         mason_lspconfig.setup()
         mason_lspconfig.setup_handlers({
             function(server_name)
-                lspconfig[server_name].setup({})
+                lspconfig[server_name].setup({
+                    autostart = true,
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                })
             end,
         })
     end,
