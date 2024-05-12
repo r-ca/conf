@@ -20,6 +20,7 @@ require('lazy').setup({
     spec = {
         { import = "plugins" },
         { import = "lsp" },
-        { import = "lsp.lang" }
+        { import = "lsp.lang" },
+        { import = "colors" }
     }
 })
