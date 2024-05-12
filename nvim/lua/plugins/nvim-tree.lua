@@ -13,11 +13,11 @@ return {
                     width = 30,
                 },
                 on_attach = function(bufnr)
-                    local api = require('nvim-tree.api')
-                    api.config.mapping.default_on_attach(bufnr) -- TODO: やめる
+                    local api = require 'nvim-tree.api'
+                    api.config.mappings.default_on_attach(bufnr) -- TODO: やめる
 
-                    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>', api.node.open.edit, { noremap = false, silent = true })
-                    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Tab>', api.node.open.tab, { noremap = false, silent = true })
+                    vim.keymap.set('n', '<Space>', api.node.open.edit, { buffer = bufnr })
+                    vim.keymap.set('n', '<Tab>', api.node.open.tab, { buffer = bufnr })
                 end
             })
             -- Toggle NvimTree
