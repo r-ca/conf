@@ -26,14 +26,14 @@ return {
     },
     config = function()
         -- Change buffer
-        vim.api.nvim_set_keymap('n', '<C-l>', ':BufferNext<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<C-h>', ':BufferPrevious<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-p>', ':BufferNext<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-o>', ':BufferPrevious<CR>', { noremap = true, silent = true })
         -- Reorder buffer
-        vim.api.nvim_set_keymap('n', '<C-S-L>', ':BufferMoveNext<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<C-S-H>', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-S-p>', ':BufferMoveNext<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-S-o>', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
         -- Close buffer
-        vim.api.nvim_set_keymap('n', '<C-j>', ':BufferClose<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-i>', ':BufferClose<CR>', { noremap = true, silent = true })
         -- Restore buffer
-        vim.api.nvim_set_keymap('n', '<C-k>', ':BufferRestore<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-S-i>', ':BufferRestore<CR>', { noremap = true, silent = true })
     end
 }
