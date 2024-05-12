@@ -6,6 +6,7 @@ return {
 		{'hrsh7th/cmp-path'},
 		{'hrsh7th/vim-vsnip'},
 		{'hrsh7th/cmp-vsnip'},
+        {'onsails/lspkind-nvim'}
     },
     config = function()
         require('cmp').setup({
