@@ -26,8 +26,6 @@ return {
         local user_home = os.getenv('HOME')
         local lombok_path = vim.fn.glob(user_home .. '/.config/nvim/lib/lombok*.jar')
         local equinox_launcher = vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar')
-        -- local equinox_launcher = vim.fn.globpath(jdtls_path, 'org.eclipse.equinox.launcher_*.jar')[1]
-        -- local equinox_launcher = jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar'
         local config_os = function()
             if vim.fn.has('mac') == 1 then
                 return jdtls_path .. '/config_mac'
