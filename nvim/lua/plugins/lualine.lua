@@ -37,6 +37,8 @@ return {
                 },
                 lualine_c = {
                     { 'filename', file_status = true, path = 1 },
+                    { 'encoding' },
+                    { 'diagnostics' },
                 },
                 lualine_x = {
                     { lsp_list, right_padding = 2 }
