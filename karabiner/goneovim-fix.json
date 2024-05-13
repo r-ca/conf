@@ -1,0 +1,34 @@
+{
+    "title": "Fix-Goneovim",
+    "rules": [
+      {
+        "description": "fix-Goneovim",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "h",
+              "modifiers": {
+                "mandatory": ["left_command"]
+              }
+            },
+            "to": [
+              {
+                "key_code": "h",
+                "modifiers": ["left_control"]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.ident\\.goneovim$"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
