@@ -1,33 +1,148 @@
 {
-"title": "Fix-Goneovim",
+    "title": "Fix-Goneovim",
     "rules": [
         {
-        "description": "fix-Goneovim",
-        "manipulators": [
-            {
-            "type": "basic",
-            "from": {
-                "key_code": "h",
-                "modifiers": {
-                "mandatory": ["left_command"]
-                }
-            },
-            "to": [
+            "description": "fix-Goneovim",
+            "manipulators": [
                 {
-                "key_code": "h",
-                "modifiers": ["left_control"]
-                }
-            ],
-            "conditions": [
+                    "type": "basic",
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "h",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
+                },
                 {
-                "type": "frontmost_application_if",
-                "bundle_identifiers": [
-                    "^com\\.ident\\.goneovim$"
-                ]
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "j",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "k",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "l",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "o",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "p",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
                 }
             ]
-            }
-        ]
         }
     ]
 }
