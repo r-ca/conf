@@ -12,3 +12,7 @@ imap <C-CR> <Action>(EditorChooseLookupItem)
 imap <S-Space> <ESC>
 tmap <S-Space> <ESC>
 vmap <S-Space> <ESC>
+
+" Git
+map tg <Action>(CheckInProject)
+
