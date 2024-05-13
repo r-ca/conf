@@ -1,0 +1,2 @@
+" Load common
+source ~/.config/common.vim
