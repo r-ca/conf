@@ -33,7 +33,7 @@ return {
 			},
 
             mapping = {
-                ['<C-Space>'] = require('cmp').mapping(function(fallback)
+                ['<C-j>'] = require('cmp').mapping(function(fallback)
                     if require('cmp').visible() then
                         require('cmp').select_next_item()
                     else
@@ -41,7 +41,7 @@ return {
                     end
                 end, { 'i', 's' }),
 
-                ['<C-S-Space>'] = require('cmp').mapping(function(fallback)
+                ['<C-k>'] = require('cmp').mapping(function(fallback)
                     if require('cmp').visible() then
                         require('cmp').select_prev_item()
                     else
@@ -49,7 +49,7 @@ return {
                     end
                 end, { 'i', 's' }),
 
-                ['<S-CR>'] = require('cmp').mapping.confirm({
+                ['<C-CR>'] = require('cmp').mapping.confirm({
                     behavior = require('cmp').ConfirmBehavior.Insert,
                     select = true,
                 }),
