@@ -2,11 +2,11 @@
 source ~/.config/common.vim
 
 " 補完Up/Down (補完移動ではないけど，他に方法がないので)
-imap <S-Tab> <Action>(EditorDown)
-imap <D-Tab> <Action>(EditorUp)
+imap <C-j> <Action>(EditorDown)
+imap <C-k> <Action>(EditorUp)
 
 " 補完確定
-imap <S-CR> <Action>(EditorChooseLookupItem)
+imap <C-CR> <Action>(EditorChooseLookupItem)
 
 " Normalに戻る
 imap <S-Space> <ESC>
