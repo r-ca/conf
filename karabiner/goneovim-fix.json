@@ -10,7 +10,7 @@
                         "key_code": "left_command"
                     },
                     "to": {
-                        "key_code": "left_control"
+                        "key_code": "right_control"
                     },
                     "conditions": [
                         {
@@ -20,11 +20,10 @@
                             ]
                         }
                     ]
-                },
-                {
+                },{
                     "type": "basic",
                     "from": {
-                        "key_code": "left_control"
+                        "key_code": "right_control"
                     },
                     "to": {
                         "key_code": "left_command"
