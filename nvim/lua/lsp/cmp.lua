@@ -33,7 +33,7 @@ return {
 			},
 
             mapping = {
-                ['<S-Tab>'] = require('cmp').mapping(function(fallback)
+                ['<C-Space>'] = require('cmp').mapping(function(fallback)
                     if require('cmp').visible() then
                         require('cmp').select_next_item()
                     else
@@ -41,7 +41,7 @@ return {
                     end
                 end, { 'i', 's' }),
 
-                ['<C-Tab>'] = require('cmp').mapping(function(fallback)
+                ['<C-S-Space>'] = require('cmp').mapping(function(fallback)
                     if require('cmp').visible() then
                         require('cmp').select_prev_item()
                     else
