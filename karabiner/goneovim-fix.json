@@ -7,16 +7,11 @@
                 {
                     "type": "basic",
                     "from": {
-                        "modifiers": {
-                            "mandatory": ["left_command"],
-                            "optional": ["any"]
-                        }
+                        "key_code": "left_command"
                     },
-                    "to": [
-                        {
-                            "key_code": "left_control"
-                        }
-                    ],
+                    "to": {
+                        "key_code": "left_control"
+                    },
                     "conditions": [
                         {
                             "type": "frontmost_application_if",
@@ -29,16 +24,11 @@
                 {
                     "type": "basic",
                     "from": {
-                        "modifiers": {
-                            "mandatory": ["left_control"],
-                            "optional": ["any"]
-                        }
+                        "key_code": "left_control"
                     },
-                    "to": [
-                        {
-                            "key_code": "left_command"
-                        }
-                    ],
+                    "to": {
+                        "key_code": "left_command"
+                    },
                     "conditions": [
                         {
                             "type": "frontmost_application_if",
