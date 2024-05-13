@@ -12,9 +12,9 @@ set nowrap
 
 " Common keymaps
 " Back to normal mode
-inoremap <S-Space> :stopinsert<CR>
-tnoremap <S-Space> <C-\><C-n>
-vnoremap <S-Space> <Esc>
+" inoremap <S-Space> :stopinsert<CR>
+" tnoremap <S-Space> <C-\><C-n>
+" vnoremap <S-Space> <Esc>
 
 " Cursor navigation (Insert)
 inoremap <C-h> <Left>
