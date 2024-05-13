@@ -19,6 +19,6 @@ set nowrap
 " Cursor navigation (Insert)
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-k> <Up>
 
