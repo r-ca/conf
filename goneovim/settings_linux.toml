@@ -8,7 +8,7 @@ WindowGeometryBasedOnFontmetrics = true
 Transparent = 1.0
 
 FontFamily = "JetBrainsMonoNL Nerd Font"
-FontSize = 12
+FontSize = 11
 
 DisableImeInNormal = true
 
