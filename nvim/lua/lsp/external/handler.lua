@@ -33,15 +33,15 @@ M.on_attach = function(client, bufnr)
     set_hover_border(client)
 
 	-- Keybindings
-	vim.keymap.set('n', '<Space>', '<cmd>lua vim.lsp.buf.hover()<CR>', { remap = true, buffer = bufnr })
-	vim.keymap.set('n', '<S-d>', '<cmd>lua vim.lsp.buf.definition()<CR>', { remap = true, buffer = bufnr })
-	vim.keymap.set('n', 'efm', '<cmd>lua vim.lsp.buf.format()<CR>', { remap = true, buffer = bufnr })
-	vim.keymap.set('n', 'erf', '<cmd>lua vim.lsp.buf.references()<CR>', { remap = true, buffer = bufnr })
-	vim.keymap.set('n', 'en', '<cmd>lua vim.lsp.buf.rename()<CR>', { remap = true, buffer = bufnr })
-	-- vim.keymap.set('n', 'efx', '<cmd>lua vim.lsp.buf.code_action()<CR>', { remap = true, buffer = bufnr })
-
-	-- Rewrite LSP saga
-	vim.keymap.set('n', '', '<cmd>Lspsaga code_action<CR>', { remap = true, buffer = bufnr })
+	-- vim.keymap.set('n', '<Space>', '<cmd>Lspsaga hover_doc<CR>', { remap = false, buffer = bufnr })
+	-- vim.keymap.set('n', '<S-d>', '<cmd>lua vim.lsp.buf.definition()<CR>', { remap = true, buffer = bufnr })
+	-- vim.keymap.set('n', 'efm', '<cmd>lua vim.lsp.buf.format()<CR>', { remap = true, buffer = bufnr })
+	-- vim.keymap.set('n', 'erf', '<cmd>lua vim.lsp.buf.references()<CR>', { remap = true, buffer = bufnr })
+	-- vim.keymap.set('n', 'en', '<cmd>lua vim.lsp.buf.rename()<CR>', { remap = true, buffer = bufnr })
+	-- -- vim.keymap.set('n', 'efx', '<cmd>lua vim.lsp.buf.code_action()<CR>', { remap = true, buffer = bufnr })
+	--
+	-- -- Rewrite LSP saga
+	-- vim.keymap.set('n', '', '<cmd>Lspsaga code_action<CR>', { remap = true, buffer = bufnr })
 end
 
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
