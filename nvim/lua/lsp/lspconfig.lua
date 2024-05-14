@@ -19,7 +19,7 @@ return {
         mason_lspconfig.setup_handlers({
             function(server_name)
                 lspconfig[server_name].setup({
-                    autostart = true,
+                    -- autostart = true,
                     capabilities = capabilities,
                     on_attach = on_attach,
                 })
