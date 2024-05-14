@@ -42,6 +42,16 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-N>:wincmd l<CR>')
 vim.keymap.set('t', '<C-j>', '<C-\\><C-N>:wincmd j<CR>')
 vim.keymap.set('t', '<C-k>', '<C-\\><C-N>:wincmd k<CR>')
 
+-- LSP Action(Workaround)
+vim.api.nvim_set_keymap('n', '<Space>', '<cmd>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<CR>', '<cmd>Lspsaga signature_help<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'ga', '<cmd>Lspsaga code_action<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
+-- format
+vim.api.nvim_set_keymap('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
 
 -- LazyGit
 local Terminal = require('toggleterm.terminal').Terminal
@@ -55,13 +65,14 @@ vim.api.nvim_set_keymap('n', 'tg', '<cmd>lua _lazygit_toggle()<CR>', { noremap =
 
 local group = vim.api.nvim_create_augroup("jump_last_position", { clear = true })
 vim.api.nvim_create_autocmd(
-	"BufReadPost",
-	{callback = function()
-			local row, col = unpack(vim.api.nvim_buf_get_mark(0, "\""))
-			if {row, col} ~= {0, 0} then
-				vim.api.nvim_win_set_cursor(0, {row, 0})
-			end
-		end,
-	group = group
-	}
+    "BufReadPost",
+    {
+        callback = function()
+            local row, col = unpack(vim.api.nvim_buf_get_mark(0, "\""))
+            if { row, col } ~= { 0, 0 } then
+                vim.api.nvim_win_set_cursor(0, { row, 0 })
+            end
+        end,
+        group = group
+    }
 )
