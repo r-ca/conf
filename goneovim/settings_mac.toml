@@ -1,0 +1,21 @@
+[Editor]
+MouseScrollingUnit = "pixel"
+
+LineToScroll = 3
+
+WindowGeometryBasedOnFontmetrics = true
+
+Transparent = 1.0
+
+FontFamily = "JetBrainsMonoNL Nerd Font"
+FontSize = 12
+
+DisableImeInNormal = true
+
+HideMouseWhenTyping = true
+
+SmoothScroll = true
+
+DrawShadowForFloatWindow = true
+
+FileOpenCmd = ":openExt"
