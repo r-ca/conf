@@ -54,6 +54,8 @@ vim.api.nvim_set_keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', { n
 vim.api.nvim_set_keymap('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
 
 if vim.fn.has('unix') == 1 then
+    -- notify for debug
+    vim.notify("Unix detected")
     -- Back to normal mode
     vim.api.nvim_set_keymap('i', '<S-Space>', '<ESC>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('t', '<S-Space>', '<C-\\><C-N>', { noremap = true, silent = true })
