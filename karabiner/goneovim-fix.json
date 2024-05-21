@@ -11,7 +11,15 @@
                     },
                     "to": {
                         "key_code": "right_control"
-                    }
+                    },
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.ident\\.goneovim$"
+                            ]
+                        }
+                    ]
                 },{
                     "type": "basic",
                     "from": {
