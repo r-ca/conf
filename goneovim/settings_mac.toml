@@ -8,16 +8,19 @@ WindowGeometryBasedOnFontmetrics = false
 Transparent = 1.0
 
 FontFamily = "JetBrainsMonoNL Nerd Font"
-FontSize = 12
+FontSize = 13
 
-DisableImeInNormal = true
+# DisableImeInNormal = true
 
+ModeEnablingIME = ["insert", "replace", "cmdline_insert", "cmdline_replace"]
 HideMouseWhenTyping = true
 
 SmoothScroll = false
 DisableHorizontalScroll = false
 DrawBorderForFloatWindow = true
-
-# DrawShadowForFloatWindow = true
+DrawShadowForFloatWindow = true
 
 FileOpenCmd = ":openExt"
+
+[Cursor]
+SmoothMove = true
