@@ -1,9 +1,9 @@
 [Editor]
-MouseScrollingUnit = "pixel"
+MouseScrollingUnit = "smart"
 
-LineToScroll = 3
+LineToScroll = 1
 
-WindowGeometryBasedOnFontmetrics = true
+WindowGeometryBasedOnFontmetrics = false
 
 Transparent = 1.0
 
@@ -14,8 +14,10 @@ DisableImeInNormal = true
 
 HideMouseWhenTyping = true
 
-SmoothScroll = true
+SmoothScroll = false
+DisableHorizontalScroll = false
+DrawBorderForFloatWindow = true
 
-DrawShadowForFloatWindow = true
+# DrawShadowForFloatWindow = true
 
 FileOpenCmd = ":openExt"
