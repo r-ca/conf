@@ -12,7 +12,7 @@ FontSize = 13
 
 # DisableImeInNormal = true
 
-ModeEnablingIME = ["insert", "replace", "cmdline_insert", "cmdline_replace"]
+ModeEnablingIME = ["insert", "replace", "terminal", "cmdline_insert", "cmdline_replace"]
 HideMouseWhenTyping = true
 
 SmoothScroll = false
