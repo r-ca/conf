@@ -45,9 +45,12 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-N>:wincmd l<CR>')
 vim.keymap.set('t', '<C-j>', '<C-\\><C-N>:wincmd j<CR>')
 vim.keymap.set('t', '<C-k>', '<C-\\><C-N>:wincmd k<CR>')
 
+-- undo
+vim.api.nvim_set_keymap('n', '<C-z>', '<cmd>undo<CR>', { noremap = true, silent = true })
+
 -- LSP Action(Workaround)
 vim.api.nvim_set_keymap('n', '<Space>', '<cmd>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<CR>', '<cmd>Lspsaga signature_help<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<CR>', '<cmd>Lspsaga signature_help<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { noremap = true, silent = true })
