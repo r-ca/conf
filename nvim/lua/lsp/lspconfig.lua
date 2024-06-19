@@ -28,6 +28,10 @@ return {
             -- Javaは別で設定しているので
             jdtls = function()
             end,
+
+            -- typescript-language-serverは無視
+            tsserver = function()
+            end,
         })
     end,
 }
