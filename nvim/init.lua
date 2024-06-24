@@ -48,6 +48,10 @@ vim.keymap.set('t', '<C-k>', '<C-\\><C-N>:wincmd k<CR>')
 -- undo
 vim.api.nvim_set_keymap('n', '<C-z>', '<cmd>undo<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>tabNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-c>', '<cmd>tabclose<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true, silent = true })
+
 -- LSP Action(Workaround)
 vim.api.nvim_set_keymap('n', '<Space>', '<cmd>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<CR>', '<cmd>Lspsaga signature_help<CR>', { noremap = true, silent = true })
