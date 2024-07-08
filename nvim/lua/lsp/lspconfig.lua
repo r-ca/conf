@@ -30,8 +30,8 @@ return {
             end,
 
             -- typescript-language-serverは無視
-            tsserver = function()
-            end,
+            -- tsserver = function()
+            -- end,
         })
     end,
 }
