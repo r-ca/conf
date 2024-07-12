@@ -63,6 +63,12 @@ vim.api.nvim_set_keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', { n
 -- format
 vim.api.nvim_set_keymap('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
 
+-- Clipboard
+vim.api.nvim_set_keymap('n', 'cp', '"*p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'cy', '"*y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'cy', '"*y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'cp', '"*p', { noremap = true, silent = true })
+
 if vim.fn.has('unix') == 1 then
     -- notify for debug
     vim.notify("Unix detected")
