@@ -29,9 +29,22 @@ return {
             jdtls = function()
             end,
 
-            -- typescript-language-serverは無視
-            -- tsserver = function()
-            -- end,
+            tsserver = function()
+                local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
+                lspconfig["tsserver"].setup({
+                    init_options = {
+                        plugins = {
+                            {
+                                name = "@vue/typescript-plugin",
+                                location = vue_typescript_plugin,
+                                languages = { "javascript", "typescript", "vue" },
+                            },
+                        },
+                    },
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                })
+            end,
         })
     end,
 }
