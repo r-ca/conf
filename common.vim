@@ -1,5 +1,6 @@
 " Config
-set smartindent
+set autoindent
+set smarttab
 set expandtab
 
 set cursorline
