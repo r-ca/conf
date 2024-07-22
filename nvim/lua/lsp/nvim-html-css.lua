@@ -1,5 +1,5 @@
 return {
-    "Jezda1337/nvim-html-css",
+    "Jezda1337/nvim-html-vss",
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
         "nvim-lua/plenary.nvim",
