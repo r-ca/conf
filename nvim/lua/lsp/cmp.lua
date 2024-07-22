@@ -10,6 +10,8 @@ return {
         {'zbirenbaum/copilot-cmp'},
         {'hrsh7th/cmp-nvim-lua'},
         {'ray-x/cmp-sql'},
+        {'hrsh7th/cmp-calc'},
+        {'hrsh7th/cmp-emoji'},
     },
     config = function()
         require('cmp').setup({
@@ -27,6 +29,8 @@ return {
                 { name = 'copilot' },
                 { name = 'nvim_lua' },
                 { name = 'sql' },
+                { name = 'calc' },
+                { name = 'emoji' },
             },
 
             formatting = {
