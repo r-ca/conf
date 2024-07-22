@@ -9,6 +9,7 @@ return {
         {'onsails/lspkind-nvim'},
         {'zbirenbaum/copilot-cmp'},
         {'hrsh7th/cmp-nvim-lua'},
+        {'ray-x/cmp-sql'},
     },
     config = function()
         require('cmp').setup({
@@ -25,6 +26,7 @@ return {
                 { name = 'vsnip' },
                 { name = 'copilot' },
                 { name = 'nvim_lua' },
+                { name = 'sql' },
             },
 
             formatting = {
