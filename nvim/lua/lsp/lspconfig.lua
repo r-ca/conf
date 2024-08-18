@@ -14,7 +14,25 @@ return {
             require('lsp.external.handler').on_attach(client, bufnr)
         end
 
-        mason.setup()
+
+        mason.setup({
+            ensure_installed = {
+                "css-lsp",
+                "css-variables-language-server",
+                "docker-compose-language-server",
+                "dockerfile-language-sevice",
+                "gopls",
+                "html-lsp",
+                "htmlhint",
+                "intelephense",
+                "jdtls",
+                "kotlin-language-server",
+                "lua-language-server",
+                "prisma-language-server",
+                "typescript-language-server",
+                "vue-language-server",
+            },
+        })
         mason_lspconfig.setup()
         mason_lspconfig.setup_handlers({
             function(server_name)
