@@ -12,7 +12,7 @@ return {
             window = {
                 mappings = {
                     ["<SPACE>"] = "open",
-                    ["<SPACE>p"] = "image_wezterm"
+                    -- ["<SPACE>p"] = "image_wezterm"
 
                 }
             },
