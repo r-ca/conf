@@ -62,6 +62,7 @@ vim.api.nvim_set_keymap('n', 'ga', '<cmd>Lspsaga code_action<CR>', { noremap = t
 vim.api.nvim_set_keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
 -- format
 vim.api.nvim_set_keymap('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-CR>', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 
 -- Clipboard
 vim.api.nvim_set_keymap('n', 'cp', '"*p', { noremap = true, silent = true })
