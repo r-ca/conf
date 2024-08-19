@@ -31,6 +31,7 @@ return {
                 "tsserver",
                 "volar",
                 "yamlls",
+                "lua_ls"
             },
         })
         mason_lspconfig.setup_handlers({
