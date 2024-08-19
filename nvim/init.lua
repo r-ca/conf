@@ -70,15 +70,6 @@ vim.api.nvim_set_keymap('n', 'cy', '"*y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'cy', '"*y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'cp', '"*p', { noremap = true, silent = true })
 
-if vim.fn.has('unix') == 1 then
-    -- notify for debug
-    vim.notify("Unix detected")
-    -- Back to normal mode
-    vim.api.nvim_set_keymap('i', '<S-Space>', '<ESC>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('t', '<S-Space>', '<C-\\><C-N>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('c', '<S-Space>', '<C-C>', { noremap = true, silent = true })
-end
-
 -- AddCommands
 vim.api.nvim_create_user_command('PackageInfo',
     function(opts)
