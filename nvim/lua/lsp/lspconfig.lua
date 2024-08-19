@@ -18,20 +18,19 @@ return {
         mason.setup()
         mason_lspconfig.setup({
             ensure_installed = {
-                "css-lsp",
-                "css-variables-language-server",
-                "docker-compose-language-server",
-                "dockerfile-language-sevice",
+                "cssls",
+                "css_variables",
+                "cssmodules_ls",
+                "docker_compose_language_service",
+                "dockerls",
                 "gopls",
-                "html-lsp",
-                "htmlhint",
+                "html",
                 "intelephense",
                 "jdtls",
-                "kotlin-language-server",
-                "lua-language-server",
-                "prisma-language-server",
-                "typescript-language-server",
-                "vue-language-server",
+                "prismals",
+                "tsserver",
+                "volar",
+                "yamlls",
             },
         })
         mason_lspconfig.setup_handlers({
