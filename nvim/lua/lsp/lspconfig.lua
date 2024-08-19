@@ -50,8 +50,6 @@ return {
                 local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server")
                     :get_install_path() .. "/node_modules/@vue/language-server"
                 -- local vue_typescript_plugin = os.getenv("HOME") .. "/.local/share/mise/installs/node/20/lib/node_modules/@vue/language-server"
-                -- debug log for check path
-                print(vue_typescript_plugin)
                 lspconfig.tsserver.setup({
                     init_options = {
                         plugins = {
