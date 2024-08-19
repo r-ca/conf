@@ -79,8 +79,19 @@ vim.api.nvim_create_user_command('PackageInfo',
     }
 )
 
--- LazyGit
+-- TUI Utils
 local Terminal = require('toggleterm.terminal').Terminal
+
+-- LazyDocker
+local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true, direction = "float" })
+
+function _lazydocker_toggle()
+    lazydocker:toggle()
+end
+
+vim.api.nvim_set_keymap('n', 'td', '<cmd>lua _lazydocker_toggle()<CR>', { noremap = true, silent = true })
+
+-- LazyGit
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 function _lazygit_toggle()
@@ -89,6 +100,7 @@ end
 
 vim.api.nvim_set_keymap('n', 'tg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
 
+-- Restore cursor position
 local group = vim.api.nvim_create_augroup("jump_last_position", { clear = true })
 vim.api.nvim_create_autocmd(
     "BufReadPost",
