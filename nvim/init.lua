@@ -34,10 +34,10 @@ vim.cmd('colorscheme ayu')
 -- Keymaps
 -- Window navigation
 -- in normal
-vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', {silent = true})
-vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', {silent = true})
-vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', {silent = true})
-vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', {silent = true})
+vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', { silent = true })
+vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', { silent = true })
+vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { silent = true })
+vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { silent = true })
 
 -- in terminal
 vim.keymap.set('t', '<C-h>', '<C-\\><C-N>:wincmd h<CR>')
@@ -73,7 +73,7 @@ vim.api.nvim_set_keymap('v', 'cp', '"*p', { noremap = true, silent = true })
 -- AddCommands
 vim.api.nvim_create_user_command('PackageInfo',
     function(opts)
-        require('package-info').show({force = true})
+        require('package-info').show({ force = true })
     end, {
         nargs = 0
     }
