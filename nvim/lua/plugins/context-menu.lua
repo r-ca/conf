@@ -8,7 +8,8 @@ end
 
 return {
     -- 'LintaoAmons/context-menu.nvim',
-    dir = '/Users/rca/proj/context-menu.nvim',
+    -- dir = '/Users/rca/proj/context-menu.nvim',
+    'r-ca/context-menu.nvim',
     config = function()
         require('context-menu').setup({
             menu_items = {
@@ -29,6 +30,10 @@ return {
                             },
                             {
                                 cmd = "Finder",
+                                filter_func = function(context)
+                                    -- return require('utils').lspCapability.check_capability("referencesProvider")
+                                    return nil
+                                end,
                                 action = {
                                     type = "callback",
                                     callback = function()
