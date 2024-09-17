@@ -8,8 +8,8 @@ end
 
 return {
     -- 'LintaoAmons/context-menu.nvim',
-    -- dir = '/Users/rca/proj/context-menu.nvim',
-    'r-ca/context-menu.nvim',
+    dir = '/Users/rca/proj/context-menu.nvim',
+    -- 'r-ca/context-menu.nvim',
     config = function()
         require('context-menu').setup({
             menu_items = {
@@ -32,7 +32,7 @@ return {
                                 cmd = "Finder",
                                 filter_func = function(context)
                                     -- return require('utils').lspCapability.check_capability("referencesProvider")
-                                    return nil
+                                    return false
                                 end,
                                 action = {
                                     type = "callback",
@@ -55,20 +55,12 @@ return {
                 },
                 {
                     order = 2,
-                    cmd = "⚙️  Debug",
+                    cmd = "Generate annotation(Neogen)",
                     action = {
-                        type = "sub_cmds",
-                        sub_cmds = {
-                            {
-                                cmd = "Get capabilities",
-                                action = {
-                                    type = "callback",
-                                    callback = function()
-                                        require("utils").lspCapability.check_capability("textDocument/definition")
-                                    end
-                                }
-                            }
-                        }
+                        type = "callback",
+                        callback = function()
+                            require('neogen').generate()
+                        end
                     }
                 }
             },
