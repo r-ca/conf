@@ -55,6 +55,16 @@ return {
                 },
                 {
                     order = 2,
+                    cmd = "🖇️ Git Message",
+                    action = {
+                        type = "callback",
+                        callback = function()
+                            callCmd("GitMessenger")
+                        end
+                    },
+                },
+                {
+                    order = 3,
                     cmd = "Generate annotation(Neogen)",
                     action = {
                         type = "callback",
@@ -62,14 +72,13 @@ return {
                             require('neogen').generate()
                         end
                     }
-                }
+                },
             },
             default_action_keymaps = {
                 close_menu = { 'q', '<esc>' },
                 trigger_action = { '<SPACE>', '<CR>' },
             }
         })
-
         -- Keymaps
         vim.api.nvim_set_keymap('n', '<space>', "<cmd> lua require('context-menu').trigger_context_menu() <cr>",
             { noremap = false, silent = true })
