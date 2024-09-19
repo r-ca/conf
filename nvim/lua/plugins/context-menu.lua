@@ -21,6 +21,10 @@ return {
                         sub_cmds = {
                             {
                                 cmd = "Preview Definition",
+                                filter_func = function(context)
+                                    local lspCapability = require('utils').lspCapability
+                                    return lspCapability.check_capability("definitionProvider", context.buffer)
+                                end,
                                 action = {
                                     type = "callback",
                                     callback = function()
