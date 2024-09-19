@@ -35,7 +35,7 @@ return {
                                     if lspCapability.check_capability("referencesProvider")
                                         or lspCapability.check_capability("definitionProvider")
                                         or lspCapability.check_capability("implementationProvider") then
-                                        return true
+                                        return false
                                     end
                                 end,
                                 action = {
