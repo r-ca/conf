@@ -30,28 +30,30 @@ return {
                             },
                             {
                                 cmd = "Finder",
-                                filter_func = function()
+                                filter_func = function(context)
                                     local lspCapability = require('utils').lspCapability
-                                    if lspCapability.check_capability("referencesProvider")
-                                        or lspCapability.check_capability("definitionProvider")
-                                        or lspCapability.check_capability("implementationProvider") then
-                                        return false
-                                    end
+                                    local test =  not (
+                                        lspCapability.check_capability("referencesProvider", context.buffer)
+                                        or lspCapability.check_capability("definitionProvider", context.buffer)
+                                        or lspCapability.check_capability("implementationProvider", context.buffer)
+                                    )
+                                    return test
                                 end,
                                 action = {
                                     type = "callback",
-                                    callback = function()
-                                        local args = { "" }
+                                    callback = function(context)
+                                        local args = {}
                                         local lspCapability = require('utils').lspCapability
-                                        if lspCapability.check_capability("referencesProvider") then
-                                            args = { "ref" }
+                                        if lspCapability.check_capability("referencesProvider", context.buffer) then
+                                            table.insert(args, "ref")
                                         end
-                                        if lspCapability.check_capability("definitionProvider") then
-                                            args = { "def" }
+                                        if lspCapability.check_capability("definitionProvider", context.buffer) then
+                                            table.insert(args, "def")
                                         end
-                                        if lspCapability.check_capability("implementationProvider") then
-                                            args = { "imp" }
+                                        if lspCapability.check_capability("implementationProvider", context.buffer) then
+                                            table.insert(args, "imp")
                                         end
+
                                         callLspsaga("finder " .. table.concat(args, "+"))
                                     end
                                 }
