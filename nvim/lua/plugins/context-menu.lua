@@ -30,14 +30,29 @@ return {
                             },
                             {
                                 cmd = "Finder",
-                                filter_func = function(context)
-                                    -- return require('utils').lspCapability.check_capability("referencesProvider")
-                                    return false
+                                filter_func = function()
+                                    local lspCapability = require('utils').lspCapability
+                                    if lspCapability.check_capability("referencesProvider")
+                                        or lspCapability.check_capability("definitionProvider")
+                                        or lspCapability.check_capability("implementationProvider") then
+                                        return true
+                                    end
                                 end,
                                 action = {
                                     type = "callback",
                                     callback = function()
-                                        callLspsaga("finder")
+                                        local args = { "" }
+                                        local lspCapability = require('utils').lspCapability
+                                        if lspCapability.check_capability("referencesProvider") then
+                                            args = { "ref" }
+                                        end
+                                        if lspCapability.check_capability("definitionProvider") then
+                                            args = { "def" }
+                                        end
+                                        if lspCapability.check_capability("implementationProvider") then
+                                            args = { "imp" }
+                                        end
+                                        callLspsaga("finder " .. table.concat(args, "+"))
                                     end
                                 }
                             },
@@ -80,7 +95,7 @@ return {
             }
         })
         -- Keymaps
-        vim.api.nvim_set_keymap('n', '<space>', "<cmd> lua require('context-menu').trigger_context_menu() <cr>",
+        vim.api.nvim_set_keymap('n', '<C-space>', "<cmd> lua require('context-menu').trigger_context_menu() <cr>",
             { noremap = false, silent = true })
     end
 }
