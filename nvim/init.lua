@@ -57,7 +57,7 @@ vim.api.nvim_set_keymap('n', '<Space>', '<cmd>Lspsaga hover_doc<CR>', { noremap 
 -- vim.api.nvim_set_keymap('n', '<CR>', '<cmd>Lspsaga signature_help<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gh', '<cmd>Lspsaga finder<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'ga', '<cmd>Lspsaga code_action<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
 -- format
