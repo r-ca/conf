@@ -20,15 +20,15 @@ return {
                         type = "sub_cmds",
                         sub_cmds = {
                             {
-                                cmd = "Preview Definition",
+                                cmd = "Rename",
                                 filter_func = function(context)
                                     local lspCapability = require('utils').lspCapability
-                                    return lspCapability.check_capability("definitionProvider", context.buffer)
+                                    return not lspCapability.check_capability("renameProvider", context.buffer)
                                 end,
                                 action = {
                                     type = "callback",
                                     callback = function()
-                                        callLspsaga("peek_definition")
+                                        callLspsaga("rename")
                                     end
                                 }
                             },
