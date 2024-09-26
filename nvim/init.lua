@@ -22,6 +22,7 @@ require('lazy').setup({
     }
 })
 
+-- Load core
 require('core.keymaps')
 require('core.others')
 require('core.options')
