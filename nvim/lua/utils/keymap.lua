@@ -3,6 +3,7 @@ local M = {}
 ---@class Options
 ---@field silent? boolean(optional, default: true)
 ---@field noremap? boolean(optional, default: true)
+---@field expr? boolean(optional, default: false)
 ---@field _autoCmd? boolean(optional, default: true)
 ---@field _raw? boolean(optional, default: false)
 
@@ -20,16 +21,19 @@ M.Mode = {
 
 -- Utils
 local function is_command(action)
-    return type(action) == 'string' and action:sub(1, 5) == '<cmd>'
+    return action:sub(1, 5) == '<cmd>'
 end
 
 local function has_cr(action)
-    return type(action) == 'string' and action:sub(-4) == '<CR>'
+    return action:sub(-4) == '<CR>'
 end
 
 local function apply_auto_cmd(action)
-    if is_command(action) and not has_cr(action) then
-        return action .. '<CR>'
+    if not is_command(action) then
+        action = '<cmd>' .. action
+    end
+    if not has_cr(action) then
+        action = action .. '<CR>'
     end
     return action
 end
@@ -71,6 +75,7 @@ function M.set(mode, key, action, options, ...)
     for _, m in ipairs(mode) do
         if original_options._autoCmd and type(action) == 'string' then -- 文字列かつ_autoCmdがtrueなら<cmd>と<CR>を付与
             action = apply_auto_cmd(action)
+            print(action)
         end
         vim.api.nvim_set_keymap(m, key, action, builtin_options)
     end
