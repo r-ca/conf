@@ -3,6 +3,9 @@ local M = {}
 ---@class Options
 ---@field silent boolean(optional, default: true)
 ---@field noremap boolean(optional, default: true)
+---@field autoCr boolean(optional, default: true)
+
+local original_option_keys = { 'autoCr' }
 
 --モード定義
 M.Mode = {
@@ -25,14 +28,20 @@ function M.set(mode, key, action, options)
         mode = { mode }
     end
 
-    -- Optionsがnilの場合はデフォルト値
-    options = options or { silent = true, noremap = true }
+    -- BuiltinなOptionsだけを取得
+    local builtin_options = {}
+        for k, v in pairs(options or {}) do
+            if not vim.tbl_contains(original_option_keys, k) then
+                builtin_options[k] = v
+            end
+        end
 
     -- Modeの数だけKeymapを設定
     for _, m in ipairs(mode) do
-        vim.api.nvim_set_keymap(m, key, action, options)
+        vim.api.nvim_set_keymap(m, key, action, builtin_options)
     end
 end
+
 
 -- Wrappers
 
