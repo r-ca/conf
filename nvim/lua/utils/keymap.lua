@@ -1,10 +1,10 @@
 local M = {}
 
 ---@class Options
----@field silent boolean(optional, default: true)
----@field noremap boolean(optional, default: true)
----@field _autoCmd boolean(optional, default: true)
----@field _raw boolean(optional, default: false)
+---@field silent? boolean(optional, default: true)
+---@field noremap? boolean(optional, default: true)
+---@field _autoCmd? boolean(optional, default: true)
+---@field _raw? boolean(optional, default: false)
 
 local original_option_keys = { '_autoCmd', '_raw' }
 
