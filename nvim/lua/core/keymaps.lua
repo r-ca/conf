@@ -15,6 +15,11 @@ kmap.terminal('<C-l>', '<C-\\><C-N>:wincmd l')
 kmap.terminal('<C-j>', '<C-\\><C-N>:wincmd j')
 kmap.terminal('<C-k>', '<C-\\><C-N>:wincmd k')
 
+-- Tab navigation
+kmap.normal('<C-n>', 'tabNext')
+kmap.normal('<C-c>', 'tabclose')
+kmap.normal('<C-t>', 'tabnew')
+
 -- LSP Actions (TODO: LSP設定側に隔離?)
 kmap.normal('<Space>', 'Lspsaga hover_doc')
 kmap.normal('gd', 'Lspsaga preview_definition')

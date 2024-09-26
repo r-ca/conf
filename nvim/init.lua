@@ -33,10 +33,3 @@ vim.cmd('colorscheme ayu')
 
 require('core.keymaps')
 
--- undo
-vim.api.nvim_set_keymap('n', '<C-z>', '<cmd>undo<CR>', { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>tabNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-c>', '<cmd>tabclose<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true, silent = true })
-
