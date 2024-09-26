@@ -80,7 +80,7 @@ end
 
 ---Set keymap in Normal mode
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options? Options (optional)
 function M.normal(key, action, options)
     M.set(M.Mode.NORMAL, key, action, options or {})
@@ -88,7 +88,7 @@ end
 
 ---Set keymap in Insert mode
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options? Options (optional)
 function M.insert(key, action, options)
     M.set(M.Mode.INSERT, key, action, options or {})
@@ -96,7 +96,7 @@ end
 
 ---Set keymap in Visual mode
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options? Options (optional)
 function M.visual(key, action, options)
     M.set(M.Mode.VISUAL, key, action, options or {})
@@ -104,7 +104,7 @@ end
 
 ---set keymap in Visual Block mode
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options? Options (optional)
 function M.vblock(key, action, options)
     M.set(M.Mode.VISUAL_BLOCK, key, action, options or {})
@@ -112,7 +112,7 @@ end
 
 ---Set keymap in Terminal mode
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options? Options (optional)
 function M.terminal(key, action, options)
     M.set(M.Mode.TERMINAL, key, action, options or {})
@@ -120,7 +120,7 @@ end
 
 ---Set keymap in Command mode
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options? Options (optional)
 function M.command(key, action, options)
     M.set(M.Mode.COMMAND, key, action, options or {})
