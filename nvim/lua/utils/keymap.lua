@@ -4,8 +4,9 @@ local M = {}
 ---@field silent boolean(optional, default: true)
 ---@field noremap boolean(optional, default: true)
 ---@field _autoCmd boolean(optional, default: true)
+---@field _raw boolean(optional, default: false)
 
-local original_option_keys = { '_autoCmd' }
+local original_option_keys = { '_autoCmd', '_raw' }
 
 --モード定義
 M.Mode = {
@@ -20,9 +21,16 @@ M.Mode = {
 ---Set keymap
 ---@param mode string | string[]
 ---@param key string
----@param action string
+---@param action string | function
 ---@param options Options (optional)
-function M.set(mode, key, action, options)
+function M.set(mode, key, action, options, ...)
+
+    -- _rawが指定されている場合はすべての引数をそのまま流す
+    if options._raw then
+        options._raw = nil -- Remove _raw from options
+        vim.api.nvim_set_keymap(mode, key, action, options, {...}) -- Set raw keymap
+    end
+
     -- Modeが配列でない場合は配列に変換
     if type(mode) ~= 'table' then
         mode = { mode }
