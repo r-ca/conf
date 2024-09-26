@@ -12,9 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- set termguicolors
-vim.opt.termguicolors = true
-
 -- Load plugins dir
 require('lazy').setup({
     spec = {
