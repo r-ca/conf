@@ -11,7 +11,7 @@ local function _lazydocker_toggle()
 end
 
 function M.lazydocker_toggle()
-    return _lazydocker_toggle()
+    return _lazydocker_toggle
 end
 
 -- LazyGit
@@ -22,7 +22,7 @@ local function _lazygit_toggle()
 end
 
 function M.lazygit_toggle()
-    return _lazygit_toggle()
+    return _lazygit_toggle
 end
 
 return M
