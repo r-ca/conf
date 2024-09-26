@@ -31,6 +31,7 @@ require('lazy').setup({
 -- set colorscheme
 vim.cmd('colorscheme ayu')
 
+require('core.keymaps')
 
 -- undo
 vim.api.nvim_set_keymap('n', '<C-z>', '<cmd>undo<CR>', { noremap = true, silent = true })
