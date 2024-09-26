@@ -3,18 +3,19 @@ local M = {}
 ---@class Options
 ---@field silent boolean(optional, default: true)
 ---@field noremap boolean(optional, default: true)
----@field autoCr boolean(optional, default: true)
+---@field _autoCr boolean(optional, default: true)
+---@field _autoCmd boolean(optional, default: true)
 
-local original_option_keys = { 'autoCr' }
+local original_option_keys = { '_autoCr' }
 
 --モード定義
 M.Mode = {
-    NORMAL = 'n',        -- Normal
-    INSERT = 'i',        -- Insert
-    VISUAL = 'v',        -- Visual
-    VISUAL_BLOCK = 'x',  -- Visual Block
-    TERMINAL = 't',      -- Terminal
-    COMMAND = 'c',       -- Command
+    NORMAL = 'n',       -- Normal
+    INSERT = 'i',       -- Insert
+    VISUAL = 'v',       -- Visual
+    VISUAL_BLOCK = 'x', -- Visual Block
+    TERMINAL = 't',     -- Terminal
+    COMMAND = 'c',      -- Command
 }
 
 ---Set keymap
@@ -28,20 +29,34 @@ function M.set(mode, key, action, options)
         mode = { mode }
     end
 
-    -- BuiltinなOptionsだけを取得
     local builtin_options = {}
+    local original_options = {}
+
+    if options == nil then
+        builtin_options = { noremap = true, silent = true }
+        original_options = { _autoCr = true }
+    else
+        -- BuiltinなOptionsだけを取得
         for k, v in pairs(options or {}) do
             if not vim.tbl_contains(original_option_keys, k) then
                 builtin_options[k] = v
+            else
+                original_options[k] = v
             end
         end
+    end
 
     -- Modeの数だけKeymapを設定
     for _, m in ipairs(mode) do
+        if original_options._autoCr then
+            action = action .. '<CR>'
+        end
+        if original_options._autoCmd then
+            action = '<cmd>' .. action .. '<CR>'
+        end
         vim.api.nvim_set_keymap(m, key, action, builtin_options)
     end
 end
-
 
 -- Wrappers
 
