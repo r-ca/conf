@@ -22,9 +22,6 @@ require('lazy').setup({
     }
 })
 
--- set colorscheme
-vim.cmd('colorscheme ayu')
-
 require('core.keymaps')
 require('core.others')
 require('core.options')
