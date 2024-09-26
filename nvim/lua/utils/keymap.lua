@@ -15,7 +15,7 @@ M.Mode = {
 }
 
 ---Set keymap
----@param mode @see Mode
+---@param mode string | string[]
 ---@param key string
 ---@param action string
 ---@param options Options (optional)
