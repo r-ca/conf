@@ -75,7 +75,6 @@ function M.set(mode, key, action, options, ...)
     for _, m in ipairs(mode) do
         if original_options._autoCmd and type(action) == 'string' then -- 文字列かつ_autoCmdがtrueなら<cmd>と<CR>を付与
             action = apply_auto_cmd(action)
-            print(action)
         end
         -- vim.api.nvim_set_keymap(m, key, action, builtin_options)
         vim.keymap.set(m, key, action, builtin_options)
