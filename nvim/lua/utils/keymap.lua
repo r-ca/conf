@@ -3,10 +3,9 @@ local M = {}
 ---@class Options
 ---@field silent boolean(optional, default: true)
 ---@field noremap boolean(optional, default: true)
----@field _autoCr boolean(optional, default: true)
 ---@field _autoCmd boolean(optional, default: true)
 
-local original_option_keys = { '_autoCr' }
+local original_option_keys = { '_autoCmd' }
 
 --モード定義
 M.Mode = {
@@ -34,7 +33,7 @@ function M.set(mode, key, action, options)
 
     if options == nil then
         builtin_options = { noremap = true, silent = true }
-        original_options = { _autoCr = true }
+        original_options = { _autoCmd = true }
     else
         -- BuiltinなOptionsだけを取得
         for k, v in pairs(options or {}) do
@@ -48,9 +47,6 @@ function M.set(mode, key, action, options)
 
     -- Modeの数だけKeymapを設定
     for _, m in ipairs(mode) do
-        if original_options._autoCr then
-            action = action .. '<CR>'
-        end
         if original_options._autoCmd then
             action = '<cmd>' .. action .. '<CR>'
         end
