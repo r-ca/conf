@@ -1,5 +1,7 @@
 -- Common keymaps
 local kmap = require('utils.keymap')
+local tuis = require('core.tuis')
+
 local Mode = kmap.Mode
 
 -- Global navigation
@@ -29,7 +31,7 @@ kmap.set({Mode.NORMAL, Mode.VISUAL}, 'cy', '"*y')
 
 -- TUIs
 -- LazyGit
-kmap.normal('tg', 'lua _lazygit_toggle()')
+kmap.normal('tg', tuis.lazygit_toggle())
 
 -- LazyDocker
-kmap.normal('td', 'lua _lazydocker_toggle()')
+kmap.normal('td', tuis.lazydocker_toggle())
