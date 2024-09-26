@@ -32,4 +32,5 @@ require('lazy').setup({
 vim.cmd('colorscheme ayu')
 
 require('core.keymaps')
-
+require('core.others')
+require('core.options')
