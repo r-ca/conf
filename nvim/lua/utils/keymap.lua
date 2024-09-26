@@ -89,7 +89,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.normal(key, action, options)
-    M.set(M.Mode.NORMAL, key, action, options or nil)
+    M.set(M.Mode.NORMAL, key, action, options or {})
 end
 
 ---Set keymap in Insert mode
