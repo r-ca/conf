@@ -18,6 +18,22 @@ M.Mode = {
     COMMAND = 'c',      -- Command
 }
 
+-- Utils
+local function is_command(action)
+    return type(action) == 'string' and action:sub(1, 5) == '<cmd>'
+end
+
+local function has_cr(action)
+    return type(action) == 'string' and action:sub(-4) == '<CR>'
+end
+
+local function apply_auto_cmd(action)
+    if is_command(action) and not has_cr(action) then
+        return action .. '<CR>'
+    end
+    return action
+end
+
 ---Set keymap
 ---@param mode string | string[]
 ---@param key string
@@ -55,12 +71,13 @@ function M.set(mode, key, action, options, ...)
 
     -- Modeの数だけKeymapを設定
     for _, m in ipairs(mode) do
-        if original_options._autoCmd then
-            action = '<cmd>' .. action .. '<CR>'
+        if original_options._autoCmd and type(action) == 'string' then -- 文字列かつ_autoCmdがtrueなら<cmd>と<CR>を付与
+            action = apply_auto_cmd(action)
         end
         vim.api.nvim_set_keymap(m, key, action, builtin_options)
     end
 end
+
 
 -- Wrappers
 
