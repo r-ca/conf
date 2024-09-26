@@ -76,7 +76,6 @@ function M.set(mode, key, action, options, ...)
         if original_options._autoCmd and type(action) == 'string' then -- 文字列かつ_autoCmdがtrueなら<cmd>と<CR>を付与
             action = apply_auto_cmd(action)
         end
-        -- vim.api.nvim_set_keymap(m, key, action, builtin_options)
         vim.keymap.set(m, key, action, builtin_options)
     end
 end
@@ -88,7 +87,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.normal(key, action, options)
-    M.set(M.Mode.NORMAL, key, action, options or {})
+    M.set(M.Mode.NORMAL, key, action, options or nil)
 end
 
 ---Set keymap in Insert mode
@@ -96,7 +95,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.insert(key, action, options)
-    M.set(M.Mode.INSERT, key, action, options or {})
+    M.set(M.Mode.INSERT, key, action, options or nil)
 end
 
 ---Set keymap in Visual mode
@@ -104,7 +103,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.visual(key, action, options)
-    M.set(M.Mode.VISUAL, key, action, options or {})
+    M.set(M.Mode.VISUAL, key, action, options or nil)
 end
 
 ---set keymap in Visual Block mode
@@ -112,7 +111,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.vblock(key, action, options)
-    M.set(M.Mode.VISUAL_BLOCK, key, action, options or {})
+    M.set(M.Mode.VISUAL_BLOCK, key, action, options or nil)
 end
 
 ---Set keymap in Terminal mode
@@ -120,7 +119,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.terminal(key, action, options)
-    M.set(M.Mode.TERMINAL, key, action, options or {})
+    M.set(M.Mode.TERMINAL, key, action, options or nil)
 end
 
 ---Set keymap in Command mode
@@ -128,7 +127,7 @@ end
 ---@param action string | function
 ---@param options? Options (optional)
 function M.command(key, action, options)
-    M.set(M.Mode.COMMAND, key, action, options or {})
+    M.set(M.Mode.COMMAND, key, action, options or nil)
 end
 
 return M
