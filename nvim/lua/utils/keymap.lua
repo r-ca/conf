@@ -77,7 +77,8 @@ function M.set(mode, key, action, options, ...)
             action = apply_auto_cmd(action)
             print(action)
         end
-        vim.api.nvim_set_keymap(m, key, action, builtin_options)
+        -- vim.api.nvim_set_keymap(m, key, action, builtin_options)
+        vim.keymap.set(m, key, action, builtin_options)
     end
 end
 
