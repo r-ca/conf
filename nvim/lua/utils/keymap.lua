@@ -52,8 +52,8 @@ function M.set(mode, key, action, options, ...)
         original_options = { _autoCmd = true }
     elseif options._raw then
         -- _rawが指定されている場合はすべての引数をそのまま流す
-        options._raw = nil                                               -- Remove _raw from options
-        vim.api.nvim_set_keymap(mode, key, action, options, { ... })     -- Set raw keymap
+        options._raw = nil
+        vim.keymap.set(mode, key, action, options, { ... })
         return -- Early return
     else
         -- BuiltinなOptionsだけを取得
