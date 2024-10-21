@@ -33,7 +33,7 @@ vim.api.nvim_create_user_command('ForceCloseFloat',
                 table.insert(closed_windows, win)
             end
         end
-        print(string.format('Closed %d windows: %s', #closed_windows, vim.inspect(closed_windows)))
+        -- print(string.format('Closed %d windows: %s', #closed_windows, vim.inspect(closed_windows)))
     end, {
         nargs = 0
     }
