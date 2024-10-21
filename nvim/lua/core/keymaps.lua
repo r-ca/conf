@@ -27,8 +27,11 @@ kmap.normal('gh', 'Lspsaga finder')
 kmap.normal('ga', 'Lspsaga code_action')
 kmap.normal('gs', 'Lspsaga show_line_diagnostics')
 
-kmap.normal('gf', 'vim.lsp.buf.format()')
-kmap.normal('<S-CR>', 'vim.lsp.buf.definition()')
+kmap.normal('gf', 'lua vim.lsp.buf.format()')
+kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
+
+-- Hop
+kmap.normal('<Leader>w', 'HopWord')
 
 -- Barbar
 kmap.normal('<C-[>', 'BufferPrevious')
