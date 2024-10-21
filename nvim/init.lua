@@ -30,3 +30,5 @@ require('lazy').setup({
 require('core.options')
 require('core.others')
 require('core.keymaps')
+
+-- require('testing.split')
