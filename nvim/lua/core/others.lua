@@ -35,3 +35,11 @@ vim.api.nvim_create_user_command('ForceCloseFloat',
         nargs = 0
     }
 )
+
+vim.api.nvim_create_user_command('DismissNotify',
+    function(opts)
+        require('noice').cmd('dismiss')
+    end, {
+        nargs = 0
+    }
+)
