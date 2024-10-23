@@ -32,3 +32,4 @@ require('core.others')
 require('core.keymaps')
 
 -- require('testing.split')
+require('testing.smart-move-cursor')

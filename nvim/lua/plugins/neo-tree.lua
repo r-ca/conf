@@ -19,6 +19,5 @@ return {
         });
 
 
-        vim.api.nvim_set_keymap('n', 'tf', '<cmd>Neotree toggle<CR>', { noremap = true, silent = true })
     end
 }

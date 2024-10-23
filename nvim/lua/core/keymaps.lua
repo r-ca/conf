@@ -28,12 +28,12 @@ end
 -- Telescope
 function F.telescope()
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<C-f>', builtin.find_files)
-    vim.keymap.set('n', '<C-g>', builtin.live_grep)
+    kmap.normal('tf', builtin.find_files)
+    kmap.normal('tg', builtin.live_grep)
 end
 
+-- LSP Actions (TODO: LSP設定側に隔離?)
 function F.lsp_actions()
-    -- LSP Actions (TODO: LSP設定側に隔離?)
     kmap.normal('<Space>', 'Lspsaga hover_doc')
     kmap.normal('gd', 'Lspsaga preview_definition')
     kmap.normal('gh', 'Lspsaga finder')
@@ -45,17 +45,18 @@ function F.lsp_actions()
     kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
 end
 
--- Hop
-kmap.normal('<Leader>w', 'HopWord')
-
--- Shift + J/K (カーソル行の5行移動)
-function F.shift_jk()
+function F.shift_hjkl()
+    -- Shift + J/K (カーソル行の5行移動)
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-j>', '5j', { _autoCmd = false })
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-k>', '5k', { _autoCmd = false })
 
+    -- Shift + H/L (バッファの先頭/末尾に移動)
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-h>', '^', { _autoCmd = false })
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-l>', 'SmartMoveCursorEoL')
+
     -- Ctrl + J/K (画面上のカーソル行を固定したままバッファ側をスクロールする動作)
-    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-j>', '5<C-E>5j', { _autoCmd = false })
-    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-k>', '5<C-Y>5k', { _autoCmd = false })
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-j>', '5<C-E>5j', { _autoCmd = false })
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-k>', '5<C-Y>5k', { _autoCmd = false })
 end
 
 -- Barbar
@@ -68,16 +69,20 @@ function F.buffer_nav()
 end
 
 function F.common()
+    kmap.normal('<C-f>', 'Neotree toggle')
+
     -- Clipboard
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, 'cp', '"*p')
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, 'cy', '"*y')
 
     -- TUIs
     -- LazyGit
-    kmap.normal('tg', tuis.lazygit_toggle())
+    kmap.normal('<C-g>', tuis.lazygit_toggle())
 
     -- LazyDocker
-    kmap.normal('td', tuis.lazydocker_toggle())
+    kmap.normal('<F2>', tuis.lazydocker_toggle())
+    -- Hop
+    kmap.normal('<Leader>w', 'HopWord')
 end
 
 -- execute all functions
