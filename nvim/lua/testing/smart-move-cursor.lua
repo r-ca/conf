@@ -32,11 +32,9 @@ local function move_cursor_to_node_or_end_of_line()
             if cursor_row == ln_end_row and cursor_col == ln_end_col then
               -- カーソルがコード部末端にある場合はコメントも含めた行末に移動
               move_cursor_to_position(end_row, end_col)
-              print("コメントを含めた行末に移動しました")
             else
               -- まだコード部末端にいない場合はコード末端に移動
               move_cursor_to_position(ln_end_row, ln_end_col)
-              print("コメント手前に移動しました")
             end
           end
           return true
@@ -65,7 +63,6 @@ local function move_cursor_to_node_or_end_of_line()
   if not check_node_at_line_end(root) then
     -- コメントノードがない場合は普通に行末に移動
     move_cursor_to_position(current_line, last_col)
-    print("行末に移動しました")
   end
 end
 
