@@ -35,12 +35,12 @@ kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
 kmap.normal('<Leader>w', 'HopWord')
 
 -- Shift + J/K (カーソル行の5行移動)
-kmap.normal('<S-j>', '5j', { _autoCmd = false })
-kmap.normal('<S-k>', '5k', { _autoCmd = false })
+kmap.set({Mode.NORMAL, Mode.VISUAL}, '<S-j>', '5j', { _autoCmd = false })
+kmap.set({Mode.NORMAL, Mode.VISUAL}, '<S-k>', '5k', { _autoCmd = false })
 
 -- Ctrl + J/K (画面上のカーソル行を固定したままバッファ側をスクロールする動作)
-kmap.normal('<C-j>', '5<C-E>5j', { _autoCmd = false })
-kmap.normal('<C-k>', '5<C-Y>5k', { _autoCmd = false })
+kmap.set({Mode.NORMAL, Mode.VISUAL}, '<C-j>', '5<C-E>5j', { _autoCmd = false })
+kmap.set({Mode.NORMAL, Mode.VISUAL}, '<C-k>', '5<C-Y>5k', { _autoCmd = false })
 
 -- Barbar
 kmap.normal('<C-[>', 'BufferPrevious')
