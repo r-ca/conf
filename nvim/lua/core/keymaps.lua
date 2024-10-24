@@ -50,6 +50,10 @@ function F.shift_hjkl()
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-j>', '5j', { _autoCmd = false })
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-k>', '5k', { _autoCmd = false })
 
+    -- Ctrl + Shift + J/K (画面上のカーソル行を固定したままバッファ側をスクロールする動作)
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-j>', '5<C-E>5j', { _autoCmd = false })
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-k>', '5<C-Y>5k', { _autoCmd = false })
+
     -- Shift + H/L (単語でジャンプ, w/bの動作)
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-h>', 'b', { _autoCmd = false })
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-l>', 'w', { _autoCmd = false })
@@ -57,10 +61,6 @@ function F.shift_hjkl()
     -- Ctrl + Shift + H/L (バッファの先頭/末尾に移動)
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-h>', '^', { _autoCmd = false })
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-l>', 'SmartMoveCursorEoL')
-
-    -- Ctrl + Shift + J/K (画面上のカーソル行を固定したままバッファ側をスクロールする動作)
-    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-j>', '5<C-E>5j', { _autoCmd = false })
-    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-k>', '5<C-Y>5k', { _autoCmd = false })
 end
 
 -- Barbar
@@ -87,6 +87,10 @@ function F.common()
     kmap.normal('<F2>', tuis.lazydocker_toggle())
     -- Hop
     kmap.normal('<Leader>w', 'HopWord')
+
+    -- 空行挿入
+    kmap.normal('<Leader>o', 'call append(line("."), "")')
+    kmap.normal('<Leader>O', 'call append(line(".")-1, "")')
 end
 
 -- execute all functions
