@@ -7,7 +7,7 @@ return {
             stages = "fade_in_slide_out",
             -- Default timeout for notifications
             timeout = 1500,
-            render = "compact"
+            render = "default"
         }
         vim.notify = nvim_notify
     end
