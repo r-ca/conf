@@ -29,10 +29,11 @@ return {
             },
             sections = {
                 lualine_a = {
-                    { 'mode', separator = { left = '' }, right_padding = 2 },
+                    -- { 'mode', separator = { left = '' }, right_padding = 2 },
+                    { 'mode', right_padding = 2 },
                 },
                 lualine_b = {
-                    { 'branch', icon = '', right_padding = 2 },
+                    { 'filetype', right_padding = 2 },
                     { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' }, right_padding = 2 },
                 },
                 lualine_c = {
@@ -48,7 +49,8 @@ return {
                     { 'location', right_padding = 2 },
                 },
                 lualine_z = {
-                    { 'filetype', separator = { right = '' }, left_padding = 2 },
+                    -- { 'branch', icon = '', separator = { right = '' }, left_padding = 2 },
+                    { 'branch', icon = '', left_padding = 2 },
                 },
             }
         })
