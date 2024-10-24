@@ -57,12 +57,12 @@ return {
                             {
                                 name = "@vue/typescript-plugin",
                                 location = vue_typescript_plugin,
-                                languages = { "javascript", "typescript", "vue" },
+                                languages = { "javascript", "typescript", "vue" }
                             },
                         },
                     },
                     filetypes = {
-                        "javascript", "typescript", "vue"
+                        "javascript", "typescript", "vue", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx"
                     },
                     capabilities = capabilities,
                     on_attach = on_attach,
