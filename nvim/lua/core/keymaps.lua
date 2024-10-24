@@ -54,7 +54,7 @@ function F.shift_hjkl()
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-h>', '^', { _autoCmd = false })
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-l>', 'SmartMoveCursorEoL')
 
-    -- Ctrl + J/K (画面上のカーソル行を固定したままバッファ側をスクロールする動作)
+    -- Ctrl + Shift + J/K (画面上のカーソル行を固定したままバッファ側をスクロールする動作)
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-j>', '5<C-E>5j', { _autoCmd = false })
     kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-k>', '5<C-Y>5k', { _autoCmd = false })
 end
