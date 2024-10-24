@@ -1,17 +1,17 @@
 local lsp_list = function()
-	local clients = {}
-	for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
-		if client.name == 'null-ls' then
-			local sources = {}
-			for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
-				table.insert(sources, source.name)
-			end
-			table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
-		else
-			table.insert(clients, client.name)
-		end
-	end
-	return ' ' .. table.concat(clients, ', ')
+    local clients = {}
+    for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+        if client.name == 'null-ls' then
+            local sources = {}
+            for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
+                table.insert(sources, source.name)
+            end
+            table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
+        else
+            table.insert(clients, client.name)
+        end
+    end
+    return ' ' .. table.concat(clients, ', ')
 end
 
 return {
@@ -36,7 +36,7 @@ return {
                     { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' }, right_padding = 2 },
                 },
                 lualine_c = {
-                    { 'filename', file_status = true, path = 1 },
+                    { 'filename',   file_status = true, path = 1 },
                     { 'encoding' },
                     { 'diagnostics' },
                 },
@@ -45,10 +45,10 @@ return {
                 },
                 lualine_y = {
                     { 'progress', right_padding = 2 },
-                    { 'filetype', right_padding = 2 },
+                    { 'location', right_padding = 2 },
                 },
                 lualine_z = {
-                    { 'location', separator = { right = '' }, left_padding = 2 },
+                    { 'filetype', separator = { right = '' }, left_padding = 2 },
                 },
             }
         })
