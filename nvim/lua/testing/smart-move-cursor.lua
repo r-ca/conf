@@ -1,3 +1,12 @@
+--[[ 
+## TODOs:
+- 全体的なリファクタ
+    - 関数構成の修正
+    - ドキュメント
+- バック(行頭移動)時にも同様のアシストができるように
+- LSPなしの環境でもフォールバック動作するように
+]]
+
 -- ノードのレンジを取得してカーソルを移動するヘルパー関数
 local function move_cursor_to_position(row, col)
   vim.api.nvim_win_set_cursor(0, {row + 1, col})
