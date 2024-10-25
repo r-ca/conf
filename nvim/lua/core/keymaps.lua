@@ -32,7 +32,7 @@ function F.telescope()
     kmap.normal('tg', builtin.live_grep)
 end
 
--- LSP Actions (TODO: LSP設定側に隔離?)
+-- LSP Actions
 function F.lsp_actions()
     kmap.normal('<Space>', 'Lspsaga hover_doc')
     kmap.normal('gd', 'Lspsaga preview_definition')
