@@ -39,6 +39,8 @@ return {
                     mode = 'symbol_text',
                     symbol_map = {
                         Copilot = '',
+                        TabNine = '󰋙', -- 似てるので
+                        sql = '',
                     },
 				})
 			},
