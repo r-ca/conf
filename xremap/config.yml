@@ -1,0 +1,16 @@
+modmap:
+- name: Global
+  remap:
+    KEY_LEFTCTRL:
+      held: KEY_LEFTCTRL
+      alone: KEY_MUHENKAN
+      alone_timeout_millis: 300
+    KEY_RIGHTCTRL:
+      held: KEY_RIGHTCTRL
+      alone: KEY_HENKAN
+      alone_timeout_millis: 300
+
+keymap:
+- name: SSpaceToEsc
+  remap:
+    SHIFT_L-SPACE: KEY_ESC
