@@ -1,0 +1,26 @@
+[Editor]
+MouseScrollingUnit = "smart"
+
+LineToScroll = 1
+
+WindowGeometryBasedOnFontmetrics = false
+
+Transparent = 1.0
+
+FontFamily = "JetBrainsMonoNL Nerd Font"
+FontSize = 13
+
+# DisableImeInNormal = true
+
+ModeEnablingIME = ["insert", "replace", "terminal", "cmdline_insert", "cmdline_replace"]
+HideMouseWhenTyping = true
+
+SmoothScroll = false
+DisableHorizontalScroll = false
+DrawBorderForFloatWindow = true
+DrawShadowForFloatWindow = true
+
+FileOpenCmd = ":openExt"
+
+[Cursor]
+SmoothMove = true

@@ -1,0 +1,48 @@
+{
+    "title": "Fix-Goneovim",
+    "rules": [
+        {
+            "description": "fix-Goneovim",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": {
+                        "key_code": "right_control"
+                    },
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^net\\.kovidgoyal\\.kitty$",
+                                "^com\\.ident\\.goneovim$",
+                                "^com\\.github\\.wez\\.wezterm$"
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_control"
+                    },
+                    "to": {
+                        "key_code": "left_command"
+                    }
+                },{
+                    "type": "basic",
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "mandatory": ["left_shift"]
+                        }
+                    },
+                    "to": {
+                        "key_code": "escape"
+                    }
+                }
+            ]
+        }
+    ]
+}
