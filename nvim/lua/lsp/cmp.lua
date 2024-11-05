@@ -36,8 +36,10 @@ return {
 
             formatting = {
 				format = require('lspkind').cmp_format({
-					with_text = true,
-					maxwidth = 120,
+                    mode = 'symbol_text',
+                    symbol_map = {
+                        Copilot = '',
+                    },
 				})
 			},
 
