@@ -27,6 +27,7 @@ return {
                 { name = 'path' },
                 { name = 'vsnip' },
                 { name = 'copilot' },
+                { name = 'cmp_tabnine' },
                 { name = 'nvim_lua' },
                 { name = 'sql' },
                 { name = 'calc' },
