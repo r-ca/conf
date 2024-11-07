@@ -9,6 +9,7 @@ vim.opt.cursorline = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.wrap = false
 
 -- set colorscheme TODO: もうちょっといい感じにしたい
