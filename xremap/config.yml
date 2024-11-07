@@ -1,16 +1,24 @@
 modmap:
-- name: Global
+- name: Common
   remap:
-    KEY_LEFTCTRL:
-      held: KEY_LEFTCTRL
+    KEY_LEFTMETA:
+      held: KEY_LEFTMETA
       alone: KEY_MUHENKAN
       alone_timeout_millis: 300
-    KEY_RIGHTCTRL:
-      held: KEY_RIGHTCTRL
+    KEY_RIGHTMETA:
+      held: KEY_RIGHTMETA
       alone: KEY_HENKAN
       alone_timeout_millis: 300
+    KEY_CAPSLOCK: KEY_LEFTCTRL
 
 keymap:
-- name: SSpaceToEsc
+- name: Common
   remap:
     SHIFT_L-SPACE: KEY_ESC
+    SUPER-z: C-z
+    SUPER-x: C-x
+    SUPER-c: C-c
+    SUPER-v: C-v
+    SUPER-a: C-a
+    SUPER-s: C-s
+    SUPER-Enter: C-Enter
