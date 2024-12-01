@@ -9,7 +9,6 @@ modmap:
       held: KEY_RIGHTMETA
       alone: KEY_HENKAN
       alone_timeout_millis: 300
-    KEY_CAPSLOCK: KEY_LEFTCTRL
 
 keymap:
 - name: Common
