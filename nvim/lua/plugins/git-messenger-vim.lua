@@ -1,5 +1,5 @@
 return {
-    'rhysd/git-messenger.vim',
-    config = function()
-    end
+  'rhysd/git-messenger.vim',
+  config = function()
+  end
 }
