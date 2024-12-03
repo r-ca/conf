@@ -1,5 +1,5 @@
 return {
-    'danymat/neogen',
-    config = true,
-    version = "*"
+  'danymat/neogen',
+  config = true,
+  version = "*"
 }

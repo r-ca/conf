@@ -15,3 +15,5 @@ source "$ZSH_D/alias/alias_common.zsh"
 # OS/Arch specific
 #source "$ZSH_D/alias/alias_macos.zsh"
 #source "$ZSH_D/common/macos.zsh"
+
+add_to_path "$HOME/bin"
