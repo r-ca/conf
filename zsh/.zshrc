@@ -12,6 +12,8 @@ source "$ZSH_D/configs.zsh"
 source "$ZSH_D/prompt/index.zsh"
 source "$ZSH_D/alias/alias_common.zsh"
 
+source "$ZSH_D/utils.zsh"
+
 # OS/Arch specific
 #source "$ZSH_D/alias/alias_macos.zsh"
 #source "$ZSH_D/common/macos.zsh"
