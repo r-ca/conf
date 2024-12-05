@@ -32,3 +32,4 @@ require('core.keymaps')
 
 -- require('testing.split')
 require('testing.smart-move-cursor')
+require('testing.floating-menu.init')
