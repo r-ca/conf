@@ -93,6 +93,10 @@ function F.common()
     kmap.normal('<Leader>O', 'call append(line(".")-1, "")')
 end
 
+function F.overseer()
+    kmap.normal('<Leader>r', 'OverseerRun')
+end
+
 -- execute all functions
 for _, fn in pairs(F) do
     fn()
