@@ -14,4 +14,3 @@ vim.opt.wrap = false
 
 -- set colorscheme TODO: もうちょっといい感じにしたい
 vim.cmd('colorscheme ayu')
-
