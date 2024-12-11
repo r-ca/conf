@@ -27,9 +27,9 @@ end
 
 -- Telescope
 function F.telescope()
-  local builtin = require('telescope.builtin')
-  kmap.normal('tf', builtin.find_files)
-  kmap.normal('tg', builtin.live_grep)
+  kmap.normal('<Leader>g', 'Telescope egrepify')
+  kmap.normal('<Leader>f', 'Telescope find_files')
+  kmap.normal('<Leader>p', 'Telescope projects')
 end
 
 -- LSP Actions
