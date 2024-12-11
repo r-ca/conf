@@ -1,6 +1,6 @@
 return {
-    'mfussenegger/nvim-dap',
-    config = function()
-        require('lsp.nvim-dap')
-    end,
+  'mfussenegger/nvim-dap',
+  config = function()
+    require('lsp.nvim-dap')
+  end,
 }
