@@ -58,7 +58,7 @@ function F.shift_hjkl()
   kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-h>', 'b', { _autoCmd = false })
   kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<S-l>', 'w', { _autoCmd = false })
 
-  -- Ctrl + Shift + H/L (バッファの先頭/末尾に移動)
+  -- Ctrl + Shift + H/L (行の先頭/いい感じの末尾に移動)
   kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-h>', '^', { _autoCmd = false })
   kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<C-S-l>', 'SmartMoveCursorEoL')
 end
