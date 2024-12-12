@@ -66,25 +66,16 @@ return {
     }
   ),
 
-  -- アロー関数スニペット: "fnar:name" または "fnar"
+  -- アロー関数スニペット: "fnar"
   s(
-    { trig = "fnar:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "fnar", regTrig = false, wordTrig = false },
     {
-      t("const "),
-      d(1, function(args, parent)
-        local name = parent.snippet.captures[1]
-        if name and name ~= "" then
-          return sn(nil, t(name))
-        else
-          return sn(nil, i(1, "arrowFunctionName"))
-        end
-      end, {}),
-      t(" = ("),
-      i(2, ""), -- 引数（デフォルトは空）
+      t("("),
+      i(1, "args"), -- 引数（デフォルトは空）
       t(") => {"),
       t({ "", "  " }),
       i(0), -- 本体
-      t({ "", "};" }),
+      t({ "", "}" }),
     }
   ),
 
@@ -105,7 +96,7 @@ return {
       t({ "", "  constructor(" }),
       i(2, ""), -- コンストラクタ引数（デフォルトは空）
       t({ ") {", "    " }),
-      i(0), -- コンストラクタ本体
+      i(0),     -- コンストラクタ本体
       t({ "", "  }", "", "}" }),
     }
   ),
