@@ -21,8 +21,8 @@ end
 
 function F.luasnip()
   -- TODO: LuaSnipが動いてないときは他のことに使えるようにしたい
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', luasnip.jump(1))
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-h>', luasnip.jump(-1))
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', luasnip.jump(1), { _autoCmd = false })
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-h>', luasnip.jump(-1), { _autoCmd = false })
 end
 
 -- Tab navigation
