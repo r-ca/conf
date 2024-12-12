@@ -3,6 +3,7 @@ local F = {}
 -- Common keymaps
 local kmap = require('utils.keymap')
 local tuis = require('core.tuis')
+local luasnip = require('luasnip')
 
 local Mode = kmap.Mode
 
@@ -16,6 +17,12 @@ function F.global_navigation()
   kmap.terminal('<C-l>', '<C-\\><C-N>:wincmd l')
   kmap.terminal('<C-j>', '<C-\\><C-N>:wincmd j')
   kmap.terminal('<C-k>', '<C-\\><C-N>:wincmd k')
+end
+
+function F.luasnip()
+  -- TODO: LuaSnipが動いてないときは他のことに使えるようにしたい
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', luasnip.jump(1))
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-h>', luasnip.jump(-1))
 end
 
 -- Tab navigation
