@@ -29,9 +29,9 @@ return {
         end
       end, {}),
       t("', () => {"),
-      t({"", "  "}),
+      t({ "", "  " }),
       i(0, "// テストブロック内にコードを記述"),
-      t({"", "});"}),
+      t({ "", "});" }),
     },
     { condition = is_test_file }
   ),
@@ -50,9 +50,9 @@ return {
         end
       end, {}),
       t("', () => {"),
-      t({"", "  "}),
+      t({ "", "  " }),
       i(0, "// テストコードを記述"),
-      t({"", "});"}),
+      t({ "", "});" }),
     },
     { condition = is_test_file }
   ),
@@ -62,9 +62,9 @@ return {
     { trig = "vitest%.ba:?(.*)", regTrig = true, wordTrig = false },
     {
       t("beforeAll(() => {"),
-      t({"", "  "}),
+      t({ "", "  " }),
       i(1, "// beforeAll の処理を記述"),
-      t({"", "});"}),
+      t({ "", "});" }),
     },
     { condition = is_test_file }
   ),
@@ -74,9 +74,9 @@ return {
     { trig = "vitest%.be:?(.*)", regTrig = true, wordTrig = false },
     {
       t("beforeEach(() => {"),
-      t({"", "  "}),
+      t({ "", "  " }),
       i(1, "// beforeEach の処理を記述"),
-      t({"", "});"}),
+      t({ "", "});" }),
     },
     { condition = is_test_file }
   ),
@@ -86,9 +86,9 @@ return {
     { trig = "vitest%.aa:?(.*)", regTrig = true, wordTrig = false },
     {
       t("afterAll(() => {"),
-      t({"", "  "}),
+      t({ "", "  " }),
       i(1, "// afterAll の処理を記述"),
-      t({"", "});"}),
+      t({ "", "});" }),
     },
     { condition = is_test_file }
   ),
@@ -98,9 +98,9 @@ return {
     { trig = "vitest%.ae:?(.*)", regTrig = true, wordTrig = false },
     {
       t("afterEach(() => {"),
-      t({"", "  "}),
+      t({ "", "  " }),
       i(1, "// afterEach の処理を記述"),
-      t({"", "});"}),
+      t({ "", "});" }),
     },
     { condition = is_test_file }
   ),
