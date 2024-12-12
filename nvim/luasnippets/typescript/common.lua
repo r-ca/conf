@@ -7,9 +7,9 @@ local d = ls.dynamic_node
 local c = ls.choice_node
 
 return {
-  -- 関数定義スニペット: "tsfn:name" または "tsfn"
+  -- 関数定義スニペット: "fn:name" または "fn"
   s(
-    { trig = "tsfn:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "fn:?(.*)", regTrig = true, wordTrig = false },
     {
       t("function "),
       d(1, function(args, parent)
@@ -21,12 +21,12 @@ return {
         end
       end, {}),
       t("("),
-      i(2, "args"), -- 引数（デフォルトは空）
+      i(2, ""), -- 引数（デフォルトは空）
       t(")"),
       d(3, function()
         return sn(nil, {
           t(": "),
-          i(1, ""), -- 戻り値の型（デフォルトは空）
+          i(1), -- 戻り値の型（デフォルトは空）
         })
       end, {}),
       t(" {"),
@@ -36,9 +36,9 @@ return {
     }
   ),
 
-  -- 非同期関数定義スニペット: "tsfnasync:name" または "tsfnasync"
+  -- 非同期関数定義スニペット: "fna:name" または "fna"
   s(
-    { trig = "tsfnasync:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "fna:?(.*)", regTrig = true, wordTrig = false },
     {
       t("async function "),
       d(1, function(args, parent)
@@ -50,12 +50,12 @@ return {
         end
       end, {}),
       t("("),
-      i(2, "args"), -- 引数（デフォルトは空）
+      i(2, ""), -- 引数（デフォルトは空）
       t(")"),
       d(3, function()
         return sn(nil, {
           t(": Promise<"),
-          i(1, ""), -- 戻り値の型（デフォルトは空）
+          i(1), -- 戻り値の型（デフォルトは空）
           t(">"),
         })
       end, {}),
@@ -66,9 +66,9 @@ return {
     }
   ),
 
-  -- シンプルなアロー関数スニペット: "tsarrow:name" または "tsarrow"
+  -- アロー関数スニペット: "fnar:name" または "fnar"
   s(
-    { trig = "tsarrow:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "fnar:?(.*)", regTrig = true, wordTrig = false },
     {
       t("const "),
       d(1, function(args, parent)
@@ -80,7 +80,7 @@ return {
         end
       end, {}),
       t(" = ("),
-      i(2, "args"), -- 引数（デフォルトは空）
+      i(2, ""), -- 引数（デフォルトは空）
       t(") => {"),
       t({ "", "  " }),
       i(0), -- 本体
@@ -88,9 +88,9 @@ return {
     }
   ),
 
-  -- クラス定義スニペット: "tsclass:name" または "tsclass"
+  -- クラス定義スニペット: "cl:name" または "cl"
   s(
-    { trig = "tsclass:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "cl:?(.*)", regTrig = true, wordTrig = false },
     {
       t("class "),
       d(1, function(args, parent)
@@ -103,16 +103,16 @@ return {
       end, {}),
       t(" {"),
       t({ "", "  constructor(" }),
-      i(2, "args"), -- コンストラクタ引数（デフォルトは空）
+      i(2, ""), -- コンストラクタ引数（デフォルトは空）
       t({ ") {", "    " }),
       i(0), -- コンストラクタ本体
       t({ "", "  }", "", "}" }),
     }
   ),
 
-  -- インターフェース定義スニペット: "tsinterface:name" または "tsinterface"
+  -- インターフェース定義スニペット: "inf:name" または "inf"
   s(
-    { trig = "tsinterface:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "inf:?(.*)", regTrig = true, wordTrig = false },
     {
       t("interface "),
       d(1, function(args, parent)
@@ -125,14 +125,14 @@ return {
       end, {}),
       t(" {"),
       t({ "", "  " }),
-      i(0), -- 本体
+      i(0), -- インターフェース本体
       t({ "", "}" }),
     }
   ),
 
-  -- インポート文スニペット: "tsimp:module" または "tsimp"
+  -- インポート文スニペット: "imp:module" または "imp"
   s(
-    { trig = "tsimp:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "imp:?(.*)", regTrig = true, wordTrig = false },
     {
       t("import "),
       c(1, {
@@ -153,9 +153,9 @@ return {
     }
   ),
 
-  -- エクスポート文スニペット: "tsexp:name" または "tsexp"
+  -- エクスポート文スニペット: "exp:name" または "exp"
   s(
-    { trig = "tsexp:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "exp:?(.*)", regTrig = true, wordTrig = false },
     {
       t("export "),
       c(1, {
@@ -167,9 +167,9 @@ return {
     }
   ),
 
-  -- 型エイリアススニペット: "tsalias:aliasName" または "tsalias"
+  -- 型エイリアススニペット: "alias:name" または "alias"
   s(
-    { trig = "tsalias:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "alias:?(.*)", regTrig = true, wordTrig = false },
     {
       t("type "),
       d(1, function(args, parent)
@@ -186,9 +186,9 @@ return {
     }
   ),
 
-  -- ジェネリック関数スニペット: "tsgenfn:name" または "tsgenfn"
+  -- ジェネリック関数スニペット: "genfn:name" または "genfn"
   s(
-    { trig = "tsgenfn:?(.*)", regTrig = true, wordTrig = false },
+    { trig = "genfn:?(.*)", regTrig = true, wordTrig = false },
     {
       t("function "),
       d(1, function(args, parent)
@@ -202,12 +202,12 @@ return {
       t("<"),
       i(2, "T"),
       t(">("),
-      i(3, "args"), -- 引数（デフォルトは空）
+      i(3, ""), -- 引数（デフォルトは空）
       t(")"),
       d(4, function()
         return sn(nil, {
           t(": "),
-          i(1, ""), -- 戻り値の型（デフォルトは空）
+          i(1), -- 戻り値の型（デフォルトは空）
         })
       end, {}),
       t(" {"),
