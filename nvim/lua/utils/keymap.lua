@@ -17,6 +17,7 @@ M.Mode = {
     VISUAL_BLOCK = 'x', -- Visual Block
     TERMINAL = 't',     -- Terminal
     COMMAND = 'c',      -- Command
+    SELECT = 's',       -- Select
 }
 
 -- Utils
