@@ -27,6 +27,10 @@ function F.luasnip()
   kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-h>', function ()
     luasnip.jump(-1)
   end, { _autoCmd = false })
+
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-e>', function ()
+    luasnip.expand()
+  end, { _autoCmd = false })
 end
 
 -- Tab navigation
