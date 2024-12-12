@@ -12,7 +12,6 @@ return {
     { 'ray-x/cmp-sql' },
     { 'hrsh7th/cmp-calc' },
     { 'hrsh7th/cmp-emoji' },
-    { 'L3MON4D3/LuaSnip' },
   },
   config = function()
     require('cmp').setup({
