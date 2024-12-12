@@ -36,49 +36,23 @@ return {
     }
   ),
 
-  -- 非同期関数定義スニペット: "fna:name" または "fna"
-  s(
-    { trig = "fna:?(.*)", regTrig = true, wordTrig = false },
-    {
-      t("async function "),
-      d(1, function(args, parent)
-        local name = parent.snippet.captures[1]
-        if name and name ~= "" then
-          return sn(nil, t(name))
-        else
-          return sn(nil, i(1, "asyncFunctionName"))
-        end
-      end, {}),
-      t("("),
-      i(2, ""), -- 引数（デフォルトは空）
-      t(")"),
-      d(3, function()
-        return sn(nil, {
-          t(": Promise<"),
-          i(1), -- 戻り値の型（デフォルトは空）
-          t(">"),
-        })
-      end, {}),
-      t(" {"),
-      t({ "", "  " }),
-      i(0), -- 本体
-      t({ "", "}" }),
-    }
-  ),
 
   -- アロー関数スニペット: "fnar"
   s(
-    { trig = "fnar", regTrig = false, wordTrig = false },
+    { trig = "arfn", regTrig = false, wordTrig = false },
+    -- 名前付きアロー or 無名アロー関数
     {
-      t("("),
-      i(1, "args"), -- 引数（デフォルトは空）
+      c(1, {
+        sn(nil, { t("const "), i(1, "name"), t(" = (") }),
+        sn(nil, { t("(") }),
+      }),
+      i(3),   -- 引数
       t(") => {"),
       t({ "", "  " }),
-      i(0), -- 本体
-      t({ "", "}" }),
+      i(0),
+      t({ "", "};" }),
     }
   ),
-
   -- クラス定義スニペット: "cl:name" または "cl"
   s(
     { trig = "cl:?(.*)", regTrig = true, wordTrig = false },
