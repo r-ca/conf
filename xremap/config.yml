@@ -1,3 +1,4 @@
+keypress_delay_ms: 200
 modmap:
 - name: Common
   remap:
@@ -13,7 +14,7 @@ modmap:
 keymap:
 - name: Common
   remap:
-    SHIFT_L-SPACE: KEY_ESC
+    SHIFT-SPACE: ESC
     SUPER-z: C-z
     SUPER-x: C-x
     SUPER-c: C-c
