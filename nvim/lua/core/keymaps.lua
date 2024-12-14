@@ -31,6 +31,14 @@ function F.common_navigation()
   kmap.normal('<C-S-s>', 'vsplit')
 end
 
+function F.windows()
+  kmap.normal('<Leader>wm', 'WindowsMaximize')
+  kmap.normal('<Leader>wvm', 'WindowsMaximizeVertically')
+  kmap.normal('<Leader>wh', 'WindowsMaximizeHorizontally')
+  kmap.normal('<Leader>we', 'WindowsEqualize')
+  kmap.normal('<Leader>wt', 'WindowsToggleAutowidth')
+end
+
 function F.luasnip()
   -- TODO: LuaSnipが動いてないときは他のことに使えるようにしたい
   kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', function ()
@@ -120,7 +128,7 @@ function F.common()
   -- LazyDocker
   kmap.normal('<F2>', tuis.lazydocker_toggle())
   -- Hop
-  kmap.normal('<Leader>w', 'HopWord')
+  kmap.normal('<Leader>h', 'HopWord')
 
   -- 空行挿入
   kmap.normal('<Leader>o', 'call append(line("."), "")')
