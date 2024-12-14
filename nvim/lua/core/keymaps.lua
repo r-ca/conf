@@ -32,11 +32,12 @@ function F.common_navigation()
 end
 
 function F.windows()
-  kmap.normal('<Leader>wm', 'WindowsMaximize')
-  kmap.normal('<Leader>wvm', 'WindowsMaximizeVertically')
-  kmap.normal('<Leader>wh', 'WindowsMaximizeHorizontally')
-  kmap.normal('<Leader>we', 'WindowsEqualize')
-  kmap.normal('<Leader>wt', 'WindowsToggleAutowidth')
+  -- kmap.normal('<Leader>mm', 'WindowsMaximize')
+  kmap.normal('<C-m>', 'WindowsMaximize')
+  kmap.normal('<Leader>mvm', 'WindowsMaximizeVertically')
+  kmap.normal('<Leader>mh', 'WindowsMaximizeHorizontally')
+  kmap.normal('<Leader>me', 'WindowsEqualize')
+  kmap.normal('<Leader>mt', 'WindowsToggleAutowidth')
 end
 
 function F.luasnip()
