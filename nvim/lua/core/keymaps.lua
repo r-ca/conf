@@ -135,7 +135,7 @@ function F.common()
   kmap.normal('<Leader>o', 'call append(line("."), "")')
   kmap.normal('<Leader>O', 'call append(line(".")-1, "")')
 
-  kmap.normal('<Leader>sw', 'SwapWindow')
+  kmap.normal('<C-e>', 'SwapWindow')
 end
 
 function F.overseer()
