@@ -22,7 +22,7 @@ function F.global_navigation()
 end
 
 function F.common_navigation()
-  kmap.normal('<C-e>', function()
+  kmap.set({ Mode.NORMAL, Mode.SELECT }, '<C-e>', function()
     chowcho_buffer.swap_buffers()
   end)
 end
