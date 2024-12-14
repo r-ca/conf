@@ -22,9 +22,13 @@ function F.global_navigation()
 end
 
 function F.common_navigation()
-  kmap.set({ Mode.NORMAL, Mode.SELECT }, '<C-e>', function()
-    chowcho_buffer.swap_buffers()
-  end)
+  -- kmap.set({ Mode.NORMAL, Mode.SELECT }, '<C-e>', function()
+  --   chowcho_buffer.swap_buffers()
+  -- end)
+
+  -- Split (C-s/C-S-s)
+  kmap.normal('<C-s>', 'split')
+  kmap.normal('<C-S-s>', 'vsplit')
 end
 
 function F.luasnip()
