@@ -4,7 +4,6 @@ local F = {}
 local kmap = require('utils.keymap')
 local tuis = require('core.tuis')
 local luasnip = require('luasnip')
--- local chowcho_buffer = require('utils.chowcho-buffer')
 
 local Mode = kmap.Mode
 
