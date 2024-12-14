@@ -133,6 +133,8 @@ function F.common()
   -- 空行挿入
   kmap.normal('<Leader>o', 'call append(line("."), "")')
   kmap.normal('<Leader>O', 'call append(line(".")-1, "")')
+
+  kmap.normal('<Leader>sw', 'SwapWindow')
 end
 
 function F.overseer()
