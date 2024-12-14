@@ -6,7 +6,8 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
     -- "marilari88/neotest-vitest"
-    { dir = "/Users/rca/proj/neotest-vitest" }
+    -- { dir = "/Users/rca/proj/neotest-vitest" }
+    "r-ca/neotest-vitest"
   },
   config = function()
     require("neotest").setup({
