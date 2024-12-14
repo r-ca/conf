@@ -44,6 +44,32 @@ vim.api.nvim_create_user_command('DismissNotify',
   }
 )
 
+local window_picker = require('window-picker')
+
+function SwapWindowsById(win1, win2)
+  -- 現在のバッファIDを取得
+  local buf1 = vim.api.nvim_win_get_buf(win1)
+  local buf2 = vim.api.nvim_win_get_buf(win2)
+
+  -- ウィンドウのバッファをスワップ
+  vim.api.nvim_win_set_buf(win1, buf2)
+  vim.api.nvim_win_set_buf(win2, buf1)
+end
+
+function SwapWithPickedWindow()
+  local picked_window_id = window_picker.pick_window()
+  if picked_window_id and vim.api.nvim_win_is_valid(picked_window_id) then
+    SwapWindowsById(vim.api.nvim_get_current_win(), picked_window_id)
+  else
+    vim.notify("Invalid window selected", vim.log.levels.ERROR)
+  end
+end
+
+-- UserCommand: ウィンドウピッカーで選択したウィンドウをスワップ
+vim.api.nvim_create_user_command('SwapWindow', function()
+  SwapWithPickedWindow()
+end, { nargs = 0 })
+
 
 local neotest = require("neotest")
 
