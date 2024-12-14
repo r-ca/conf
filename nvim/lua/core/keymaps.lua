@@ -73,6 +73,7 @@ function F.telescope()
   kmap.normal('<Leader>g', 'Telescope egrepify')
   kmap.normal('<Leader>f', 'Telescope find_files')
   kmap.normal('<Leader>p', 'Telescope projects')
+  kmap.normal('tt', 'Telescope commands')
 end
 
 -- LSP Actions
@@ -129,7 +130,7 @@ function F.common()
   -- LazyDocker
   kmap.normal('<F2>', tuis.lazydocker_toggle())
   -- Hop
-  kmap.normal('<Leader>h', 'HopWord')
+  kmap.normal('<Leader>w', 'HopWord')
 
   -- 空行挿入
   kmap.normal('<Leader>o', 'call append(line("."), "")')
