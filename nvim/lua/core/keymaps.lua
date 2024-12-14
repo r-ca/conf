@@ -4,6 +4,7 @@ local F = {}
 local kmap = require('utils.keymap')
 local tuis = require('core.tuis')
 local luasnip = require('luasnip')
+local chowcho_buffer = require('utils.chowcho-buffer')
 
 local Mode = kmap.Mode
 
@@ -17,6 +18,13 @@ function F.global_navigation()
   kmap.terminal('<C-l>', '<C-\\><C-N>:wincmd l')
   kmap.terminal('<C-j>', '<C-\\><C-N>:wincmd j')
   kmap.terminal('<C-k>', '<C-\\><C-N>:wincmd k')
+
+end
+
+function F.common_navigation()
+  kmap.normal('<C-e>', function()
+    chowcho_buffer.swap_buffers()
+  end)
 end
 
 function F.luasnip()
