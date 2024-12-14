@@ -38,6 +38,14 @@ return {
               { "Optimize",       "CopilotChatOptimize" },
               { "Refactor",       "CopilotChatRefactor" },
               { "Reset",          "CopilotChatReset" },
+              { "Review",         "CopilotChatReview" },
+              { "Save",           "CopilotChatSave" },
+              { "Spelling",       "CopilotChatSpelling" },
+              { "Stop",           "CopilotChatStop" },
+              { "Summarize",      "CopilotChatSummarize" },
+              { "Tests",          "CopilotChatTests" },
+              { "Toggle",         "CopilotChatToggle" },
+              { "Wording",        "CopilotChatWording" },
             }
           }
         },
