@@ -9,7 +9,6 @@ return {
   },
   config = function()
     require("CopilotChat").setup({
-
       prompts = {
         Explain = {
           prompt = "/COPILOT_EXPLAIN アクティブな選択範囲の説明を段落形式で書いてください。日本語で返答ください。",
