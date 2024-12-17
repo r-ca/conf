@@ -7,12 +7,14 @@ return {
     "nvim-treesitter/nvim-treesitter",
     -- "marilari88/neotest-vitest"
     -- { dir = "/Users/rca/proj/neotest-vitest" }
-    "r-ca/neotest-vitest"
+    "r-ca/neotest-vitest",
+    "olimorris/neotest-phpunit"
   },
   config = function()
     require("neotest").setup({
       adapters = {
-        require("neotest-vitest")
+        require("neotest-vitest"),
+        require("neotest-phpunit")
       }
     })
   end
