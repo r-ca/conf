@@ -40,6 +40,22 @@ let g:lightline = { 'colorscheme': 'rosepine_dawn' }
 
 set laststatus=2
 
+" 改行やタブなどの不可視文字を NerdFont で見やすく表示
+set list
+set listchars=tab:,eol:,trail:󱁐,nbsp:,space:󱁐
+
+" NerdFontシンボル表示用のカスタムコマンド
+command! ShowHiddenChars set list
+command! HideHiddenChars set nolist
+
+" 16進ダンプ表示と切り替えのカスタムコマンド
+command! HexView %!xxd
+command! HexRestore %!xxd -r
+
+" バイナリモードとテキストモードの切り替え用のカスタムコマンド
+command! BinaryMode setlocal binary | e ++binary
+command! TextMode setlocal nobinary | e ++nobinary
+
 " Shift + j/k（カーソルを5行単位で移動）
 nnoremap <S-j> 5j
 nnoremap <S-k> 5k
