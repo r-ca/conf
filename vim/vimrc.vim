@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'rayes0/blossom.vim'
 Plug 'rose-pine/vim'
-
+Plug 'lambdalisue/fern.vim'
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -55,6 +55,8 @@ command! HexRestore %!xxd -r
 " バイナリモードとテキストモードの切り替え用のカスタムコマンド
 command! BinaryMode setlocal binary | e ++binary
 command! TextMode setlocal nobinary | e ++nobinary
+
+nnoremap <C-f> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 " Shift + j/k（カーソルを5行単位で移動）
 nnoremap <S-j> 5j
