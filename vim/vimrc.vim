@@ -38,7 +38,7 @@ colorscheme rosepine_dawn
 
 let g:lightline = { 'colorscheme': 'rosepine_dawn' }
 
-set lastsatus=2
+set laststatus=2
 
 " Shift + j/k（カーソルを5行単位で移動）
 nnoremap <S-j> 5j
