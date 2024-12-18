@@ -25,13 +25,20 @@ set fileformats=unix,dos,mac
 call plug#begin('~/.vim/plugged')
 
 Plug 'rayes0/blossom.vim'
+Plug 'rose-pine/vim'
 
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
 set termguicolors
-colorscheme blossom
+
+set background=light
+colorscheme rosepine_dawn
+
+let g:lightline = { 'colorscheme': 'rosepine_dawn' }
+
+set lastsatus=2
 
 " Shift + j/k（カーソルを5行単位で移動）
 nnoremap <S-j> 5j
