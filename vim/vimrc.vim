@@ -21,6 +21,18 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 set fileformats=unix,dos,mac
 
+" Vim-Plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'rayes0/blossom.vim'
+
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
+
+set termguicolors
+colorscheme blossom
+
 " Shift + j/k（カーソルを5行単位で移動）
 nnoremap <S-j> 5j
 nnoremap <S-k> 5k
