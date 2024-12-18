@@ -28,6 +28,7 @@ Plug 'rayes0/blossom.vim'
 Plug 'rose-pine/vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'rbtnn/vim-ambiwidth'
 
 call plug#end()
 
