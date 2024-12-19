@@ -66,8 +66,9 @@ RestoreWindowGeometry = false
 # FontFamily = "Consolas"
 ## In Windows
 # FontFamily = "Windows"
+FontFamily = "JetBrainsMono Nerd Font"
 ## Fontsize is
-# FontSize = 12
+FontSize = 12
 ## letterspace is
 # Letterspace = 0
 
@@ -129,17 +130,17 @@ RestoreWindowGeometry = false
 # OptionsToUseGuideWidth = "tabstop"
 
 ## Animates the scrolling behavior of Neovim when the scroll command is entered.
-# SmoothScroll = false
+SmoothScroll = true
 ## Specifies the speed of animation in smooth scrolling.
 # SmoothScrollDuration = 300
 ## Disables horizontal scrolling for smooth scrolling with the touchpad.
 # DisableHorizontalScroll = true
 
 ## Draw border on a float window
-# DrawBorderForFloatWindow = false
+# DrawBorderForFloatWindow = true
 
 ## Draw shadow under a float window
-# DrawShadowForFloatWindow = false
+# DrawShadowForFloatWindow = true
 
 ## Enable desktop notification settings for nvim messages.
 ## This option works only if ExtMessages is enabled.
