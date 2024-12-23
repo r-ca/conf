@@ -1,0 +1,71 @@
+{
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "apklab.apkSignerPath": "/Users/rca/.apklab/uber-apk-signer-1.3.0.jar",
+  "apklab.apktoolPath": "/Users/rca/.apklab/apktool_2.9.3.jar",
+  "apklab.jadxDirPath": "/Users/rca/.apklab/jadx-1.4.7",
+  "boot-java.rewrite.reconcile": true,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorBlinking": "smooth",
+  "editor.inlineSuggest.enabled": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "files.insertFinalNewline": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreRebaseWarning": true,
+  "npm.keybindingsChangedWarningShown": true,
+  "redhat.telemetry.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "vsnotes.defaultNotePath": "/Users/rca/Desktop/VSNote",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "cSpell.enabled": false,
+  "editor.fontFamily": "'JetBrains Mono'",
+  "files.autoSave": "afterDelay",
+  "editor.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+  "java.debug.settings.vmArgs": "-Xms16G -Xmx16G",
+  "html-css-class-completion.JavaScriptLanguages": [
+    
+    "javascript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "GithubGistExplorer.explorer.gistSortBy": "Last Updated",
+  "GithubGistExplorer.explorer.gistAscending": false,
+  "GithubGistExplorer.explorer.subscriptionSortBy": "Last Updated",
+  "GithubGistExplorer.explorer.subscriptionAscending": false,
+  "remote.SSH.remotePlatform": {
+    "coder-vscode.coder-michishio.manyage.net--r-ca--test1": "linux",
+    "coder-vscode.coder-michishio.manyage.net--r-ca--test8": "linux",
+    "coder-vscode.coder-michishio.manyage.net--r-ca--test12": "linux",
+    "coder-vscode.coder-michishio.manyage.net--r-ca--test17--backend-api": "linux"
+  },
+  "remote.SSH.connectTimeout": 1800,
+  "svg.preview.mode": "img",
+  "workbench.colorTheme": "Horizon Bright",
+  "window.menuBarVisibility": "toggle",
+  "terminal.integrated.allowChords": false,
+  "github.copilot.advanced": {
+    
+  }
+}
