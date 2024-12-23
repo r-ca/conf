@@ -45,7 +45,6 @@
   "terminal.integrated.fontSize": 15,
   "java.debug.settings.vmArgs": "-Xms16G -Xmx16G",
   "html-css-class-completion.JavaScriptLanguages": [
-    
     "javascript",
     "javascriptreact",
     "typescriptreact"
@@ -65,7 +64,195 @@
   "workbench.colorTheme": "Horizon Bright",
   "window.menuBarVisibility": "toggle",
   "terminal.integrated.allowChords": false,
-  "github.copilot.advanced": {
-    
-  }
+  "github.copilot.advanced": {},
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<S-j>"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "<S-k>"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "<C-S-j>"
+      ],
+      "after": [
+        "5",
+        "<C-e>"
+      ]
+    },
+    {
+      "before": [
+        "<C-S-k>"
+      ],
+      "after": [
+        "5",
+        "<C-y>"
+      ]
+    },
+    {
+      "before": [
+        "<S-h>"
+      ],
+      "after": [
+        "b"
+      ]
+    },
+    {
+      "before": [
+        "<S-l>"
+      ],
+      "after": [
+        "w"
+      ]
+    },
+    {
+      "before": [
+        "<C-S-h>"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      "before": [
+        "<C-S-l>"
+      ],
+      "after": [
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        "workbench.action.navigateLeft"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "commands": [
+        "workbench.action.navigateRight"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "commands": [
+        "workbench.action.navigateDown"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "workbench.action.navigateUp"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        "<S-j>"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "<S-k>"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "<C-S-j>"
+      ],
+      "after": [
+        "5",
+        "<C-e>"
+      ]
+    },
+    {
+      "before": [
+        "<C-S-k>"
+      ],
+      "after": [
+        "5",
+        "<C-y>"
+      ]
+    },
+    {
+      "before": [
+        "<S-h>"
+      ],
+      "after": [
+        "b"
+      ]
+    },
+    {
+      "before": [
+        "<S-l>"
+      ],
+      "after": [
+        "w"
+      ]
+    }
+  ],
+  "vim.terminalModeKeyBindings": [
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        "workbench.action.terminal.focusPreviousPane"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "commands": [
+        "workbench.action.terminal.focusNextPane"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "commands": [
+        "workbench.action.terminal.focusNextPane"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "workbench.action.terminal.focusPreviousPane"
+      ]
+    }
+  ]
 }
