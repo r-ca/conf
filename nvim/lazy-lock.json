@@ -49,6 +49,7 @@
   "neo-tree.nvim": { "branch": "v3.x", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
   "neogen": { "branch": "main", "commit": "dc50715c009f89b8111197fd2f282f6042daa7ea" },
   "neotest": { "branch": "master", "commit": "6d3d22cdad49999ef774ebe1bc250a4994038964" },
+  "neotest-pest": { "branch": "main", "commit": "b665a4881c706eea476fcaf79a21996e9b65514d" },
   "neotest-phpunit": { "branch": "main", "commit": "baae8dfa0a3aaacd9f0bb6845d6348f5bcdc48bb" },
   "neotest-vitest": { "branch": "main", "commit": "0d724d4c92fb31e69b64770fefe035f59525396a" },
   "neovim-ayu": { "branch": "master", "commit": "2839c88cd297a069e93df1aab542c087e8f6e8c0" },
