@@ -35,14 +35,28 @@ return {
       },
 
       formatting = {
-        format = require('lspkind').cmp_format({
-          mode = 'symbol_text',
-          symbol_map = {
-            Copilot = '',
-            TabNine = '󰋙', -- 似てるので
-            sql = '',
-          },
-        })
+        format = function(entry, item)
+          -- `nvim-highlight-colors`によるフォーマット
+          local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+
+          -- `lspkind`のフォーマット設定
+          item = require("lspkind").cmp_format({
+            mode = 'symbol_text',
+            symbol_map = {
+              Copilot = '',
+              TabNine = '󰋙', -- 似てるので
+              sql = '',
+            },
+          })(entry, item)
+
+          -- 色情報があればそれを適用
+          if color_item.abbr_hl_group then
+            item.kind_hl_group = color_item.abbr_hl_group
+            item.kind = color_item.abbr
+          end
+
+          return item
+        end
       },
 
       mapping = {
