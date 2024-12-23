@@ -75,6 +75,7 @@
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "render-markdown.nvim": { "branch": "main", "commit": "e41b0002fe4196825450ab5a6343300c40791d51" },
+  "screenkey.nvim": { "branch": "main", "commit": "16390931d847b1d5d77098daccac4e55654ac9e2" },
   "sidebar.nvim": { "branch": "main", "commit": "5695712eef6288fff667343c4ae77c54911bdb1b" },
   "telescope-egrepify.nvim": { "branch": "master", "commit": "a8070970a661330c4e00450d25f874f6c2b00af9" },
   "telescope-import.nvim": { "branch": "main", "commit": "6ccc0ad05b2906e04c5ba415a7f973229efc6dbc" },
