@@ -3,6 +3,7 @@ return {
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'fdschmidt93/telescope-egrepify.nvim'
   },
   config = function()
     require('telescope').setup {
@@ -12,6 +13,9 @@ return {
         },
       },
       extensions = {
+        egrepify = {
+          results_ts_hl = true,
+        },
         menu = {
           default = {
             items = {
