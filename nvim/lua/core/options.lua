@@ -12,5 +12,7 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.wrap = false
 
+vim.g.git_messenger_no_default_mappings = true
+
 -- set colorscheme TODO: もうちょっといい感じにしたい
 vim.cmd('colorscheme ayu')
