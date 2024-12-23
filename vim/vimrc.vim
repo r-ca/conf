@@ -43,7 +43,13 @@ set laststatus=2
 
 " 改行やタブなどの不可視文字を NerdFont で見やすく表示
 set list
-set listchars=tab:,eol:,trail:󱁐,nbsp:,space:󱁐
+" set listchars=tab:,eol:,trail:󱁐,nbsp:,space:󱁐
+set listchars=eol:
+
+" listcharsの設定をカスタムコマンドで切り替える(改行だけ or 全て)
+
+command! SetListCharsAll set list listchars=tab:,eol:,trail:󱁐,nbsp:,space:󱁐
+command! SetListCharsDefault set list listchars=eol:
 
 " NerdFontシンボル表示用のカスタムコマンド
 command! ShowHiddenChars set list
