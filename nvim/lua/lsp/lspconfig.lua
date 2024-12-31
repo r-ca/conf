@@ -69,6 +69,15 @@ return {
         })
       end,
 
+      intelephense = function()
+        lspconfig.intelephense.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          filetypes = { "php", "blade" },
+        })
+      end,
+
+
       rust_analyzer = function()
         lspconfig.rust_analyzer.setup({
           capabilities = capabilities,
