@@ -139,7 +139,7 @@ function F.common()
 
   -- JumpBack/Forward
   kmap.set({ Mode.NORMAL, Mode.VISUAL, Mode.INSERT }, '<C-b>', '<C-o>', { _autoCmd = false })
-  kmap.set({ Mode.NORMAL, Mode.VISUAL, Mode.INSERT }, '<C-f>', '<C-i>', { _autoCmd = false })
+  kmap.set({ Mode.NORMAL, Mode.VISUAL, Mode.INSERT }, '<C-n>', '<C-i>', { _autoCmd = false })
 
   -- Escape→Insert next line
   kmap.insert('<C-o>', '<Esc>o', { _autoCmd = false })
