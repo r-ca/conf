@@ -11,7 +11,7 @@ add_to_path() {
   if [[ ":$PATH:" != *":$dir:"* ]]; then
     export PATH="$dir:$PATH"
   else
-    echo "Already in PATH: $dir"
+    # echo "Already in PATH: $dir"
   fi
 }
 
