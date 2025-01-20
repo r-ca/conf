@@ -136,6 +136,19 @@ function F.common()
   kmap.normal('<Leader>O', 'call append(line(".")-1, "")')
 
   kmap.normal('<C-e>', 'SwapWindow')
+
+  -- JumpBack/Forward
+  kmap.set({ Mode.NORMAL, Mode.VISUAL, Mode.INSERT }, '<C-b>', '<C-o>', { _autoCmd = false })
+  kmap.set({ Mode.NORMAL, Mode.VISUAL, Mode.INSERT }, '<C-n>', '<C-i>', { _autoCmd = false })
+
+  -- Escape→Insert next line
+  kmap.insert('<C-o>', '<Esc>o', { _autoCmd = false })
+
+  -- Move cursor in insert mode
+  kmap.insert('<C-h>', '<Left>', { _autoCmd = false })
+  kmap.insert('<C-l>', '<Right>', { _autoCmd = false })
+  kmap.insert('<C-j>', '<Down>', { _autoCmd = false })
+  kmap.insert('<C-k>', '<Up>', { _autoCmd = false })
 end
 
 function F.overseer()
