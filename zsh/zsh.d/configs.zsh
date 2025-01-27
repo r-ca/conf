@@ -4,7 +4,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # Plugins
-autoload -Uz compinit && compinit
+autoload -Uz compinit
 
 zinit light zsh-users/zsh-autosuggestions # Suggest
 zinit light zsh-users/zsh-syntax-highlighting # 構文ハイライト
