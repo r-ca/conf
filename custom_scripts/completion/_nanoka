@@ -12,4 +12,4 @@ _nanoka() {
   esac
 }
 
-# compdef _nanoka nanoka
+# compdef _nanoka $NANOKA_SCRIPT_PATH
