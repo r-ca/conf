@@ -1,7 +1,7 @@
 # Prompt mode
-alias sonanoka="export rca_shell_prompt_mode=normal && source ~/.zshrc"
-alias nanoka="export rca_shell_prompt_mode=presentation && source ~/.zshrc"
-alias nyashi="export rca_shell_prompt_mode=nyashi && source ~/.zshrc"
+alias "prompt:sonanoka"="export rca_shell_prompt_mode=normal && source ~/.zshrc"
+alias "prompt:nanoka"="export rca_shell_prompt_mode=presentation && source ~/.zshrc"
+alias "prompt:nyashi"="export rca_shell_prompt_mode=nyashi && source ~/.zshrc"
 
 # Common
 alias cl="clear"
