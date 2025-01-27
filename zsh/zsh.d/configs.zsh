@@ -6,8 +6,6 @@ SAVEHIST=100000
 # Plugins
 autoload -Uz compinit
 
-compinit
-
 zinit light zsh-users/zsh-autosuggestions # Suggest
 zinit light zsh-users/zsh-syntax-highlighting # 構文ハイライト
 zinit light chrissicool/zsh-bash # bash-like な挙動にする
