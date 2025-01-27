@@ -24,3 +24,5 @@ add_to_path "$HOME/bin"
 
 # -- Run finally.zsh at the end of zshrc --
 source "$ZSH_D/finally.zsh"
+
+source "$ZSH_D/common/run-nanoka.zsh" # use compdef in this script, so load after compinit
