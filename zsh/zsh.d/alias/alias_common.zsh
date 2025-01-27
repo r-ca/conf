@@ -10,3 +10,6 @@ alias lsl="ls -l"
 alias lsla="ls -la"
 
 alias relogin="/bin/zsh --login"
+
+# Script
+alias nanoka="$HOME/custom_scripts/bin/run.sh"
