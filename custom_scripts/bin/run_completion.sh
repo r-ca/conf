@@ -1,6 +1,6 @@
-#compdef nyashi
+#compdef nanoka
 
-_nyashi() {
+_nanoka() {
     local commands=("list" "run" "help")
     local scripts
     scripts=($(ls "$SCRIPT_DIR"/*.sh 2>/dev/null | xargs -n 1 basename | sed 's/\.sh$//'))
@@ -12,4 +12,4 @@ _nyashi() {
 
 }
 
-_nyashi "$@"
+# _nyashi "$@"
