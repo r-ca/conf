@@ -1,0 +1,15 @@
+#compdef nanoka
+
+_nanoka() {
+  local -a val
+  val=(list run help)
+
+  _arguments '1: :->arg1'
+  case "$state" in
+    arg1)
+      _values $state $val
+      ;;
+  esac
+}
+
+compdef _nanoka nanoka
