@@ -1,15 +1,22 @@
 #compdef nanoka
 
 _nanoka() {
-  local -a val
-  val=(list run help)
+  local commands=("list" "run" "help")
+  local -a scripts
 
-  _arguments '1: :->arg1'
-  case "$state" in
-    arg1)
-      _values $state $val
-      ;;
-  esac
+  # *.sh の拡張子を取ったbasenameを配列に格納
+  # (あるいは setopt nullglob しておき、.shが無い場合でもエラーにしないなど工夫)
+  for f in "$SCRIPT_DIR"/*.sh(N); do
+    # (N) フラグで「マッチしない場合は無視」できる。なければ nullglob を使う設定が必要
+    [[ -f $f ]] || continue
+    scripts+=( "${f:t:r}" ) 
+    # これは「${f:t}" = basename, ":r" = 拡張子除去」のzsh流の書き方です
+  done
+
+  _arguments \
+    '1:command:('"${commands[*]}"')' \
+    '2:script_name:('"${scripts[*]}"')' \
+    '*::arguments:'
 }
 
-# compdef _nanoka $NANOKA_SCRIPT_PATH
+# _nanoka "$@"
