@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script directory
-# SCRIPT_DIR="$HOME/scripts" Provide at environment variable
+# Ensure SCRIPT_DIR is set via an environment variable
+: "${SCRIPT_DIR:?Environment variable SCRIPT_DIR is not set. Please set it to the scripts directory.}"
 
 # Show help message
 show_help() {
@@ -28,6 +28,12 @@ list_scripts() {
 run_script() {
     local script_name="$1"
     shift
+
+    # Append .sh if not present
+    if [[ "$script_name" != *.sh ]]; then
+        script_name="${script_name}.sh"
+    fi
+
     local script_path="$SCRIPT_DIR/$script_name"
 
     if [ ! -x "$script_path" ]; then
