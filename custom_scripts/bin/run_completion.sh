@@ -12,4 +12,4 @@ _nanoka() {
 
 }
 
-# _nyashi "$@"
+# _nanoka "$@"
