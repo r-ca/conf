@@ -1,0 +1,22 @@
+#compdef foo
+
+_foo() {
+  local -a val
+  val=(foo bar baz)
+
+  local -a fruits
+  fruits=(apple banana orange)
+
+  _arguments '1: :->arg1' '2: :->arg2'
+
+  case "$state" in
+    arg1)
+      _values $state $val
+      ;;
+    arg2)
+      _values $state $fruits
+      ;;
+  esac
+}
+
+compdef _foo foo
