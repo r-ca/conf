@@ -1,5 +1,5 @@
 require("overseer").setup({
-  templates = { 
+  templates = {
     "builtin",
     "user.lang.c.build_gcc",
     "user.lang.java.build_javac",
