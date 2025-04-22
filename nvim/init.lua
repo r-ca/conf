@@ -30,6 +30,9 @@ require('core.options')
 require('core.others')
 require('core.keymaps')
 
+-- overseer
+require("core.overseer")
+
 -- require('testing.split')
 require('testing.smart-move-cursor')
 -- require('testing.floating-menu.init')
