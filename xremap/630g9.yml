@@ -1,0 +1,24 @@
+virtual_modifiers:
+  - FN
+
+modmap:
+  - name: Common
+    remap:
+      KEY_LEFTMETA:
+        held: KEY_LEFTMETA
+        alone: KEY_MUHENKAN
+        alone_timeout_millis: 300
+      KEY_RIGHTMETA:
+        held: KEY_RIGHTMETA
+        alone: KEY_HENKAN
+        alone_timeout_millis: 300
+      KEY_LEFTALT: KEY_FN
+keymap:
+  - name: FN-like
+    remap:
+      FN-SPACE: Esc
+      FN-h: { with_mark: left }
+      FN-j: UP
+      FN-k: DOWN
+      FN-l: RIGHT
+

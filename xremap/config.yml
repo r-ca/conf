@@ -2,19 +2,19 @@ keypress_delay_ms: 200
 modmap:
 - name: Common
   remap:
-    KEY_LEFTMETA:
-      held: KEY_LEFTMETA
+    KEY_LEFTALT:
+      held: KEY_LEFTALT
       alone: KEY_MUHENKAN
       alone_timeout_millis: 300
-    KEY_RIGHTMETA:
-      held: KEY_RIGHTMETA
+    KEY_RIGHTALT:
+      held: KEY_RIGHTALT
       alone: KEY_HENKAN
       alone_timeout_millis: 300
 
 keymap:
 - name: Common
   remap:
-    SHIFT-SPACE: ESC
+    SHIFT-SPACE: Esc
     SUPER-z: C-z
     SUPER-x: C-x
     SUPER-c: C-c
