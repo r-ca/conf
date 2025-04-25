@@ -136,7 +136,8 @@ function F.common()
   kmap.normal('<Leader>o', 'call append(line("."), "")')
   kmap.normal('<Leader>O', 'call append(line(".")-1, "")')
 
-  kmap.normal('<C-e>', 'SwapWindow')
+  kmap.normal('<C-e>', 'Chowcho')
+  kmap.normal('<C-S-e>', 'SwapWindow')
 
   -- JumpBack/Forward
   kmap.set({ Mode.NORMAL, Mode.VISUAL, Mode.INSERT }, '<C-b>', '<C-o>', { _autoCmd = false })
