@@ -10,10 +10,10 @@ local M = {
 function M.float_buffer(opts, bufnr)
   bufnr              = bufnr or api.nvim_get_current_buf()
   opts               = opts or {}
-  local width        = opts.width or math.floor(vim.o.columns * 0.5)
-  local height       = opts.height or math.floor(vim.o.lines * 0.4)
-  local row          = opts.row or (vim.o.lines - height - 2)
-  local col          = opts.col or (vim.o.columns - width - 2)
+  local width        = opts.width or math.floor(vim.o.columns * 0.4)
+  local height       = opts.height or math.floor(vim.o.lines * 0.5)
+  local row          = opts.row or (vim.o.lines - height - 5)
+  local col          = opts.col or (vim.o.columns - width - 1)
 
   -- フロート生成（フォーカスは移動しない）
   local winid        = api.nvim_open_win(bufnr, false, {
