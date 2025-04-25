@@ -13,7 +13,7 @@ function M.float_buffer(opts, bufnr)
   local width        = opts.width or math.floor(vim.o.columns * 0.5)
   local height       = opts.height or math.floor(vim.o.lines * 0.4)
   local row          = opts.row or (vim.o.lines - height - 2)
-  local col          = opts.col or math.floor((vim.o.columns - width) / 2)
+  local col          = opts.col or (vim.o.columns - width - 2)
 
   -- フロート生成（フォーカスは移動しない）
   local winid        = api.nvim_open_win(bufnr, false, {
