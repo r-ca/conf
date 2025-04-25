@@ -61,11 +61,11 @@ function F.luasnip()
 end
 
 -- Tab navigation
-function F.tab_navigation()
-  kmap.normal('<C-n>', 'tabNext')
-  kmap.normal('<C-c>', 'tabclose')
-  kmap.normal('<C-t>', 'tabnew')
-end
+-- function F.tab_navigation()
+--   kmap.normal('<C-n>', 'tabNext')
+--   kmap.normal('<C-c>', 'tabclose')
+--   kmap.normal('<C-t>', 'tabnew')
+-- end
 
 -- Telescope
 function F.telescope()
