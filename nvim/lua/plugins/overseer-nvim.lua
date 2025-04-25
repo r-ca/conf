@@ -3,6 +3,8 @@ return {
   dependencies = { 'stevearc/dressing.nvim' },
   opts = {},
   config = function()
-    require('overseer').setup()
+    require("overseer").setup({
+      strategy = "toggleterm",
+    })
   end,
 }
