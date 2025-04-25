@@ -4,6 +4,7 @@ local F = {}
 local kmap = require('utils.keymap')
 local tuis = require('core.tuis')
 local luasnip = require('luasnip')
+local float_util = require('utils.float-util')
 
 local Mode = kmap.Mode
 
@@ -153,6 +154,12 @@ end
 
 function F.overseer()
   kmap.normal('<Leader>r', 'OverseerRun')
+end
+
+function F.float()
+  kmap.set({ Mode.NORMAL, Mode.TERMINAL }, '<C-t>', function()
+    float_util.toggle_view()
+  end, { _autoCmd = false })
 end
 
 -- execute all functions
