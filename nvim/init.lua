@@ -34,6 +34,7 @@ require('core.keymaps')
 require("core.overseer")
 
 require('testing.float')
+require('testing.float-resize')
 -- require('testing.split')
 require('testing.smart-move-cursor')
 -- require('testing.floating-menu.init')
