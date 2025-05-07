@@ -2,39 +2,33 @@ local function h(name)
   return vim.api.nvim_get_hl(0, { name = name })
 end
 
--- 透過にするので bg は指定せず、blend だけ入れてみる
 vim.api.nvim_set_hl(0, 'SymbolUsageRounding', {
   fg     = h('CursorLine').bg,
   italic = true,
-  blend  = 20,
 })
 
 vim.api.nvim_set_hl(0, 'SymbolUsageContent', {
   fg     = h('CursorLine').fg,
   bg     = h('CursorLine').bg,
   italic = true,
-  blend  = 20,
 })
 
 vim.api.nvim_set_hl(0, 'SymbolUsageRef', {
   fg     = h('Function').fg,
   bg     = h('CursorLine').bg,
   italic = true,
-  blend  = 20,
 })
 
 vim.api.nvim_set_hl(0, 'SymbolUsageDef', {
   fg     = h('Type').fg,
   bg     = h('CursorLine').bg,
   italic = true,
-  blend  = 20,
 })
 
 vim.api.nvim_set_hl(0, 'SymbolUsageImpl', {
   fg     = h('@keyword').fg,
   bg     = h('CursorLine').bg,
   italic = true,
-  blend  = 20,
 })
 
 local function text_format(symbol)
@@ -92,7 +86,6 @@ end
 
 return {
   'Wansmer/symbol-usage.nvim',
-  event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
   config = function()
     require('symbol-usage').setup({
       text_format = text_format,
