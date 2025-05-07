@@ -17,8 +17,8 @@ keymap:
   - name: FN-like
     remap:
       FN-SPACE: Esc
-      FN-h: { with_mark: left }
-      FN-j: UP
-      FN-k: DOWN
+      FN-h: LEFT 
+      FN-j: DOWN
+      FN-k: UP
       FN-l: RIGHT
 
