@@ -1,36 +1,36 @@
 local function h(name)
   return vim.api.nvim_get_hl(0, { name = name })
 end
-
-vim.api.nvim_set_hl(0, 'SymbolUsageRounding', {
-  fg     = h('CursorLine').bg,
-  italic = true,
-})
-
-vim.api.nvim_set_hl(0, 'SymbolUsageContent', {
-  fg     = h('CursorLine').fg,
-  bg     = h('CursorLine').bg,
-  italic = true,
-})
-
-vim.api.nvim_set_hl(0, 'SymbolUsageRef', {
-  fg     = h('Function').fg,
-  bg     = h('CursorLine').bg,
-  italic = true,
-})
-
-vim.api.nvim_set_hl(0, 'SymbolUsageDef', {
-  fg     = h('Type').fg,
-  bg     = h('CursorLine').bg,
-  italic = true,
-})
-
-vim.api.nvim_set_hl(0, 'SymbolUsageImpl', {
-  fg     = h('@keyword').fg,
-  bg     = h('CursorLine').bg,
-  italic = true,
-})
-
+--
+-- vim.api.nvim_set_hl(0, 'SymbolUsageRounding', {
+--   fg     = h('CursorLine').bg,
+--   italic = true,
+-- })
+--
+-- vim.api.nvim_set_hl(0, 'SymbolUsageContent', {
+--   fg     = h('CursorLine').fg,
+--   bg     = h('CursorLine').bg,
+--   italic = true,
+-- })
+--
+-- vim.api.nvim_set_hl(0, 'SymbolUsageRef', {
+--   fg     = h('Function').fg,
+--   bg     = h('CursorLine').bg,
+--   italic = true,
+-- })
+--
+-- vim.api.nvim_set_hl(0, 'SymbolUsageDef', {
+--   fg     = h('Type').fg,
+--   bg     = h('CursorLine').bg,
+--   italic = true,
+-- })
+--
+-- vim.api.nvim_set_hl(0, 'SymbolUsageImpl', {
+--   fg     = h('@keyword').fg,
+--   bg     = h('CursorLine').bg,
+--   italic = true,
+-- })
+--
 local function text_format(symbol)
   local res = {}
 
@@ -91,6 +91,29 @@ return {
       text_format = text_format,
       vt_position = 'above',
       request_pending_text = 'Pending...',
+    })
+    -- ハイライト定義を関数化
+    local function apply_symbol_usage_hl()
+      local h = function(name) return vim.api.nvim_get_hl(0, { name = name }) end
+      vim.api.nvim_set_hl(0, 'SymbolUsageRounding', { fg = h('CursorLine').bg, italic = true, blend = 20 })
+      vim.api.nvim_set_hl(0, 'SymbolUsageContent',
+        { fg = h('CursorLine').fg, bg = h('CursorLine').bg, italic = true, blend = 20 })
+      vim.api.nvim_set_hl(0, 'SymbolUsageRef',
+        { fg = h('Function').fg, bg = h('CursorLine').bg, italic = true, blend = 20 })
+      vim.api.nvim_set_hl(0, 'SymbolUsageDef',
+        { fg = h('Type').fg, bg = h('CursorLine').bg, italic = true, blend = 20 })
+      vim.api.nvim_set_hl(0, 'SymbolUsageImpl',
+        { fg = h('@keyword').fg, bg = h('CursorLine').bg, italic = true, blend = 20 })
+    end
+
+    -- 起動時にも一度適用
+    apply_symbol_usage_hl()
+
+    -- カラー・スキーム変更後にも再適用
+    vim.api.nvim_create_augroup('SymbolUsageHighlights', { clear = true })
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      group    = 'SymbolUsageHighlights',
+      callback = apply_symbol_usage_hl,
     })
   end
 }
