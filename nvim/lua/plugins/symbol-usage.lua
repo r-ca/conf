@@ -56,7 +56,7 @@ return {
   config = function()
     require('symbol-usage').setup({
       text_format = text_format,
-      vt_position = 'above',
+      vt_position = 'end_of_line',
       request_pending_text = 'Pending...',
     })
     -- ハイライト定義を関数化
