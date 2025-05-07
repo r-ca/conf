@@ -1,76 +1,90 @@
--- Float Window Move/Resize Utility (矢印キーで移動、hjklでリサイズ)
-local function float_win_resizer(winid)
+local M = {}
+
+M.opts = {
+  toggle = "<leader>fm",
+  move = { left = "<Left>", right = "<Right>", up = "<Up>", down = "<Down>" },
+  resize = {
+    shrink = { left = "h", right = "l", up = "k", down = "j" },
+    expand = { left = "H", right = "L", up = "K", down = "J" },
+  },
+  quit = "<Esc>",
+}
+
+function M.attach(winid, opts)
   if not vim.api.nvim_win_is_valid(winid) then return end
+  opts = vim.tbl_deep_extend("force", M.opts, opts or {})
 
-  -- 現在の設定を取得（row/col は数値）
   local cfg = vim.api.nvim_win_get_config(winid)
-
-  -- 設定を反映するヘルパー
-  local function apply()  
-    vim.api.nvim_win_set_config(winid, cfg)
-  end
-
-  -- キーマッピング用ヘルパー
-  local function map(key, fn)
+  local map_buf = function(key, fn)
     vim.keymap.set('n', key, function()
       fn()
-      apply()
+      vim.api.nvim_win_set_config(winid, cfg)
     end, { buffer = 0, silent = true })
   end
 
-  -- ── 移動 ──
-  map('<Left>',  function() cfg.col = cfg.col - 1 end)
-  map('<Right>', function() cfg.col = cfg.col + 1 end)
-  map('<Up>',    function() cfg.row = cfg.row - 1 end)
-  map('<Down>',  function() cfg.row = cfg.row + 1 end)
+  map_buf(opts.move.left, function() cfg.col = cfg.col - 1 end)
+  map_buf(opts.move.right, function() cfg.col = cfg.col + 1 end)
+  map_buf(opts.move.up, function() cfg.row = cfg.row - 1 end)
+  map_buf(opts.move.down, function() cfg.row = cfg.row + 1 end)
 
-  -- ── リサイズ ──
-  -- 左方向
-  map('h', function()  -- 縮小：左端を内側に
+  map_buf(opts.resize.shrink.left, function()
     cfg.col   = cfg.col + 1
     cfg.width = math.max(1, cfg.width - 1)
   end)
-  map('H', function()  -- 拡大：左側に広げる
-    cfg.col   = cfg.col - 1
-    cfg.width = cfg.width + 1
-  end)
-  -- 右方向
-  map('l', function()  -- 縮小：右端を内側に
+  map_buf(opts.resize.shrink.right, function()
     cfg.width = math.max(1, cfg.width - 1)
   end)
-  map('L', function()  -- 拡大：右側に広げる
-    cfg.width = cfg.width + 1
-  end)
-  -- 上方向
-  map('k', function()  -- 縮小：上端を下に
+  map_buf(opts.resize.shrink.up, function()
     cfg.row    = cfg.row + 1
     cfg.height = math.max(1, cfg.height - 1)
   end)
-  map('K', function()  -- 拡大：上側に広げる
+  map_buf(opts.resize.shrink.down, function()
+    cfg.height = math.max(1, cfg.height - 1)
+  end)
+
+  map_buf(opts.resize.expand.left, function()
+    cfg.col   = cfg.col - 1
+    cfg.width = cfg.width + 1
+  end)
+  map_buf(opts.resize.expand.right, function()
+    cfg.width = cfg.width + 1
+  end)
+  map_buf(opts.resize.expand.up, function()
     cfg.row    = cfg.row - 1
     cfg.height = cfg.height + 1
   end)
-  -- 下方向
-  map('j', function()  -- 縮小：下端を上に
-    cfg.height = math.max(1, cfg.height - 1)
-  end)
-  map('J', function()  -- 拡大：下側に広げる
+  map_buf(opts.resize.expand.down, function()
     cfg.height = cfg.height + 1
   end)
 
-  -- ESC でモード終了
-  vim.keymap.set('n', '<Esc>', function()
-    vim.cmd('echo "Float Move/Resize モード終了"')
-    for _, key in ipairs({ '<Left>','<Right>','<Up>','<Down>',
-                          'h','H','j','J','k','K','l','L','<Esc>' }) do
-      vim.keymap.del('n', key, { buffer = 0 })
+  vim.keymap.set('n', opts.quit, function()
+    vim.cmd('echo "Exit."')
+    local keys = {
+      opts.move.left, opts.move.right, opts.move.up, opts.move.down,
+      opts.resize.shrink.left, opts.resize.shrink.right,
+      opts.resize.shrink.up, opts.resize.shrink.down,
+      opts.resize.expand.left, opts.resize.expand.right,
+      opts.resize.expand.up, opts.resize.expand.down,
+      opts.quit,
+    }
+    for _, k in ipairs(keys) do
+      pcall(vim.keymap.del, 'n', k, { buffer = 0 })
     end
   end, { buffer = 0, silent = true })
 
-  vim.cmd('echo "Floatモード: ←↑→↓で移動, hjklで縮小, Shift+hjklで拡大, ESCで終了"')
+  vim.cmd('echo "Start"')
 end
 
--- <leader>fm で起動
-vim.keymap.set('n', '<leader>fm', function()
-  float_win_resizer(vim.api.nvim_get_current_win())
-end, { desc = "Float Move/Resize" })
+function M.resize_current(opts)
+  local winid = vim.api.nvim_get_current_win()
+  M.attach(winid, opts)
+end
+
+function M.setup(opts)
+  M.opts = vim.tbl_deep_extend("force", M.opts, opts or {})
+  vim.keymap.set('n', M.opts.toggle, function()
+    M.resize_current(M.opts)
+  end, { desc = 'Float Move/Resize', silent = true })
+end
+
+return M
