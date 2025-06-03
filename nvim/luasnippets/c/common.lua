@@ -6,7 +6,7 @@ local c  = ls.choice_node
 local sn = ls.snippet_node
 
 return {
-  -- C の #include スニペット: "incl"
+  -- C の #include スニペット: トリガーを "incl" に変更
   s(
     { trig = "incl", regTrig = false, wordTrig = true },
     {
@@ -19,11 +19,10 @@ return {
   ),
 
   -- C の基本的な関数テンプレート: "func"
-  -- 戻り値型のデフォルトを int にしておく
   s(
     { trig = "func", regTrig = false, wordTrig = true },
     {
-      -- 戻り値の型（デフォルトは int）
+      -- 戻り値型（デフォルトは int）
       c(1, {
         t("int"),
         t("void"),
@@ -78,12 +77,12 @@ return {
     }
   ),
 
-  -- 変数宣言スニペット例: "var"
-  -- 変数の型・名前・初期値を一気に入力可能
+  -- 変数宣言スニペット: "var"
+  -- スカラー変数 or 配列変数 を Choice で切り替えられるように
   s(
     { trig = "var", regTrig = false, wordTrig = true },
     {
-      -- 型の候補
+      -- ① 型の選択肢
       c(1, {
         t("int"),
         t("char"),
@@ -93,12 +92,20 @@ return {
         i(nil, "type"),
       }),
       t(" "),
-      -- 変数名
+      -- ② 変数名
       i(2, "name"),
-      t(" = "),
-      -- 初期値（デフォルトは 0）
-      i(3, "0"),
-      t(";"),
+      t(" "),
+      -- ③ スカラー or 配列 を選択
+      c(3, {
+        -- ③-1: スカラー（初期値あり／なしを選べるように）
+        sn(nil, {
+          t("= "), i(1, "0"), t(";"),
+        }),
+        -- ③-2: 配列（たとえばサイズ [1] などを入力）
+        sn(nil, {
+          t("["), i(1, "size"), t("]"), t(";"),
+        }),
+      }),
     }
   ),
 }
