@@ -6,9 +6,9 @@ local c  = ls.choice_node
 local sn = ls.snippet_node
 
 return {
-  -- C の #include スニペット: "include"
+  -- C の #include スニペット: "incl"
   s(
-    { trig = "include", regTrig = false, wordTrig = true },
+    { trig = "incl", regTrig = false, wordTrig = true },
     {
       t("#include "),
       c(1, {
