@@ -87,19 +87,4 @@ return {
       }),
     }
   ),
-
-  -- 関数プロトタイプ（関数宣言のみ）スニペット: "proto"
-  s(
-    { trig = "proto", regTrig = false, wordTrig = true },
-    {
-      -- 戻り値型の選択
-      c(1, {
-        t("int"),
-        t("void"),
-        t("char *"),
-        i(1, "type"),
-      }),
-      t(" "), i(2, "function_name"), t("("), i(3, "void"), t(");"),
-    }
-  ),
 }
