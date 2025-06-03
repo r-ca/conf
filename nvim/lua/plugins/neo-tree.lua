@@ -12,7 +12,7 @@ return {
         mappings = {
           ["<SPACE>"] = "open",
           -- ["<SPACE>p"] = "image_wezterm"
-
+          ["<C-f>"] = "close_window",
         }
       },
     });
