@@ -18,3 +18,7 @@ vim.g.git_messenger_no_default_mappings = true
 
 -- set colorscheme TODO: もうちょっといい感じにしたい
 vim.cmd('colorscheme ayu')
+
+-- set split direction
+vim.opt.splitbelow = true
+vim.opt.splitright = true
