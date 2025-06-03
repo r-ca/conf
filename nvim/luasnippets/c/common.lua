@@ -4,6 +4,7 @@ local sn = ls.snippet_node
 local t  = ls.text_node
 local i  = ls.insert_node
 local c  = ls.choice_node
+local d  = ls.dynamic_node
 
 return {
   -- include スニペット: "incl"
@@ -72,16 +73,29 @@ return {
       t(" "), i(2, "name"), t(" "),
       -- ② スカラー or 配列 or 配列＋初期化 の選択
       c(3, {
-        -- scalar: int foo = 0;
+        -- スカラー: int foo = 0;
         sn(nil, { t("= "), i(1, "0"), t(";") }),
 
-        -- array without initializer: int foo[ size ];
+        -- 配列のみ: int foo[size];
         sn(nil, { t("["), i(1, "size"), t("];") }),
 
-        -- array with initializer: int foo[ size ] = { values };
+        -- 配列＋初期化: int foo[size] = { … };
         sn(nil, {
           t("["), i(1, "size"), t("] = { "),
-          i(2, "values"), -- 例: 1, 2, 3
+          -- dynamic_node を使って、size の数だけ挿入フィールドを生成
+          d(2, function(args)
+            local nodes = {}
+            local size_text = args[1][1]
+            local n = tonumber(size_text) or 1
+            if n < 1 then n = 1 end
+            for idx = 1, n do
+              table.insert(nodes, i(idx, "val" .. idx))
+              if idx < n then
+                table.insert(nodes, t(", "))
+              end
+            end
+            return sn(nil, nodes)
+          end, { 1 }),
           t(" };"),
         }),
       }),
