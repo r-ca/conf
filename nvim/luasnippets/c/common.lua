@@ -23,10 +23,10 @@ return {
     {
       -- 戻り値型の選択
       c(1, {
-        t("int"),
-        t("void"),
-        t("char *"),
-        i(1, "type"),
+        sn(nil, { t("int") }),
+        sn(nil, { t("void") }),
+        sn(nil, { t("char *") }),
+        sn(nil, { i(1, "type") }),
       }),
       t(" "), i(2, "function_name"), t("("), i(3, "void"), t({ ") {", "  " }),
       i(4, ""),
@@ -62,12 +62,12 @@ return {
     {
       -- ① 型の選択
       c(1, {
-        t("int"),
-        t("char"),
-        t("float"),
-        t("double"),
-        t("char *"),
-        i(1, "type"),
+        sn(nil, { t("int") }),
+        sn(nil, { t("char") }),
+        sn(nil, { t("float") }),
+        sn(nil, { t("double") }),
+        sn(nil, { t("char *") }),
+        sn(nil, { i(1, "type") }),
       }),
       t(" "), i(2, "name"), t(" "),
       -- ② スカラー or 配列 or 配列＋初期化 の選択
@@ -75,10 +75,10 @@ return {
         -- scalar: int foo = 0;
         sn(nil, { t("= "), i(1, "0"), t(";") }),
 
-        -- array without initializer: int foo[ size ];
+        -- array without initializer: int foo[size];
         sn(nil, { t("["), i(1, "size"), t("];") }),
 
-        -- array with initializer: int foo[ size ] = { values };
+        -- array with initializer: int foo[size] = { values };
         sn(nil, {
           t("["), i(1, "size"), t("] = { "),
           i(2, "values"), -- 例: 1, 2, 3
@@ -94,10 +94,10 @@ return {
     {
       -- 戻り値型の選択
       c(1, {
-        t("int"),
-        t("void"),
-        t("char *"),
-        i(1, "type"),
+        sn(nil, { t("int") }),
+        sn(nil, { t("void") }),
+        sn(nil, { t("char *") }),
+        sn(nil, { i(1, "type") }),
       }),
       t(" "), i(2, "function_name"), t("("), i(3, "void"), t(");"),
     }
