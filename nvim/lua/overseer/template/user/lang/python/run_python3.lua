@@ -5,7 +5,7 @@ return {
     return {
       cmd = { "python3", file },
       components = {
-        { "on_output_quickfix", open = true },
+        { "open_output", focus = true, direction = "horizontal" },
         "default",
       },
     }

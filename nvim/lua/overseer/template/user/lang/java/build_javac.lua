@@ -11,7 +11,7 @@ return {
     return {
       cmd = { "bash", "-c", cmd },
       components = {
-        { "on_output_quickfix", open = true },
+        { "open_output", focus = true, direction = "horizontal" },
         "default",
       },
     }
