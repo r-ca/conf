@@ -5,7 +5,7 @@ return {
     local filepath = vim.fn.expand("%:p")   -- フルパス
     local basename = vim.fn.expand("%:t:r") -- 拡張子なしのファイル名
     local cmd = string.format(
-      "gcc %s -o %s && ./%s",
+      "gcc %s -o %s.out && ./%s.out",
       vim.fn.shellescape(filepath),
       vim.fn.shellescape(basename),
       vim.fn.shellescape(basename)
