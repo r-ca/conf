@@ -12,35 +12,34 @@ return {
     {
       t("#include "),
       c(1, {
-        sn(nil, { t("<"), i(1, "stdio.h"), t(">") }),    -- <stdio.h>
-        sn(nil, { t("\""), i(1, "header.h"), t("\"") }), -- "header.h"
+        sn(nil, { t("<"), i(1, "stdio.h"), t(">") }),
+        sn(nil, { t("\""), i(1, "header.h"), t("\"") }),
       }),
     }
   ),
 
   -- C の基本的な関数テンプレート: "func"
-  -- 戻り値型のデフォルトを int、ボディはスペース２インデント
+  -- choice_node の中身をすべて insert_node にして、初期値 "int" のまま Tab で次へ移動可能に
   s(
     { trig = "func", regTrig = false, wordTrig = true },
     {
-      -- 戻り値型（デフォルトは int）
+      -- 戻り値型: デフォルトは "int"。Tab で次のノード（関数名）へ移動できる
       c(1, {
-        t("int"),
-        t("void"),
-        t("char *"),
-        i(nil, "type"), -- カスタム型を手入力したい場合
+        i(nil, "int"),
+        i(nil, "void"),
+        i(nil, "char *"),
+        i(nil, "type"),
       }),
       t(" "),
       -- 関数名
       i(2, "function_name"),
       t("("),
-      -- 引数リスト（デフォルトは void）
+      -- 引数リスト
       i(3, "void"),
-      t(")"),
-      t({ " {", "  " }), -- 改行してスペース２文字インデント
-      -- 関数本体
+      t({ " {", "  " }),
+      -- 本体
       i(0),
-      t({ "", "}" }), -- 本体終了後に改行して閉じ括弧
+      t({ "", "}" }),
     }
   ),
 
@@ -49,11 +48,11 @@ return {
     { trig = "print", regTrig = false, wordTrig = true },
     {
       c(1, {
-        -- フォーマット文字列だけ
+        -- 引数なし版: printf("format");
         sn(nil, {
           t("printf(\""), i(1, "format"), t("\");"),
         }),
-        -- フォーマット＋引数
+        -- 引数あり版: printf("format", args);
         sn(nil, {
           t("printf(\""), i(1, "format"), t("\", "), i(2, "args"), t(");"),
         }),
@@ -66,11 +65,11 @@ return {
     { trig = "scan", regTrig = false, wordTrig = true },
     {
       c(1, {
-        -- 1つの変数を読み取る例
+        -- 1 変数読み取り版: scanf("%d", &var);
         sn(nil, {
           t("scanf(\""), i(1, "%d"), t("\", &"), i(2, "var"), t(");"),
         }),
-        -- 複数変数読み取りの例
+        -- 複数変数読み取り版: scanf("%d %f", &i, &f);
         sn(nil, {
           t("scanf(\""), i(1, "%d %f"), t("\", &"), i(2, "i"), t(", &"), i(3, "f"), t(");"),
         }),
@@ -79,17 +78,17 @@ return {
   ),
 
   -- 変数宣言スニペット: "var"
-  -- スカラー or 配列 を選択可能にし、スカラーは初期値付き、配列はサイズ指定
+  -- スカラー or 配列 どちらも一つの choice_node で切り替え可能
   s(
     { trig = "var", regTrig = false, wordTrig = true },
     {
       -- ① 型の選択肢
       c(1, {
-        t("int"),
-        t("char"),
-        t("float"),
-        t("double"),
-        t("char *"),
+        i(nil, "int"),
+        i(nil, "char"),
+        i(nil, "float"),
+        i(nil, "double"),
+        i(nil, "char *"),
         i(nil, "type"),
       }),
       t(" "),
@@ -98,11 +97,11 @@ return {
       t(" "),
       -- ③ スカラー or 配列 を選択
       c(3, {
-        -- ③-1: スカラー（初期値付き）
+        -- ③-1: スカラー (初期値付き)
         sn(nil, {
           t("= "), i(1, "0"), t(";"),
         }),
-        -- ③-2: 配列（サイズ指定）
+        -- ③-2: 配列 (サイズ指定)
         sn(nil, {
           t("["), i(1, "size"), t("]"), t(";"),
         }),
