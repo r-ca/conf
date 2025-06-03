@@ -1,6 +1,5 @@
 local ls = require("luasnip")
 local s  = ls.snippet
-local sn = ls.snippet_node
 local t  = ls.text_node
 local i  = ls.insert_node
 local c  = ls.choice_node
@@ -11,9 +10,10 @@ return {
     { trig = "incl", regTrig = false, wordTrig = true },
     {
       c(1, {
-        sn(nil, { t("#include <"), i(1, "stdio.h"), t(">") }),
-        sn(nil, { t("#include \""), i(1, "header.h"), t("\"") }),
+        t("#include <stdio.h>"),
+        t("#include \"header.h\""),
       }),
+      i(0), -- 最後に置く
     }
   ),
 
@@ -21,7 +21,7 @@ return {
   s(
     { trig = "func", regTrig = false, wordTrig = true },
     {
-      -- 戻り値型の選択
+      -- ① 戻り値型の選択（int / void / char * / 自由入力）
       c(1, {
         t("int"),
         t("void"),
@@ -29,8 +29,9 @@ return {
         i(1, "type"),
       }),
       t(" "), i(2, "function_name"), t("("), i(3, "void"), t({ ") {", "  " }),
-      i(4, ""),
+      i(4, ""), -- 関数本体の先頭
       t({ "", "}" }),
+      i(0),     -- ここでスニペットを抜ける
     }
   ),
 
@@ -39,9 +40,10 @@ return {
     { trig = "print", regTrig = false, wordTrig = true },
     {
       c(1, {
-        sn(nil, { t("printf(\""), i(1, "format"), t("\");") }),
-        sn(nil, { t("printf(\""), i(1, "format"), t("\", "), i(2, "args"), t(");") }),
+        t("printf(\"format\");"),
+        t("printf(\"format\", args);"),
       }),
+      i(0),
     }
   ),
 
@@ -50,9 +52,10 @@ return {
     { trig = "scan", regTrig = false, wordTrig = true },
     {
       c(1, {
-        sn(nil, { t("scanf(\""), i(1, "%d"), t("\", &"), i(2, "var"), t(");") }),
-        sn(nil, { t("scanf(\""), i(1, "%d %f"), t("\", &"), i(2, "i"), t(", &"), i(3, "f"), t(");") }),
+        t("scanf(\"%d\", &var);"),
+        t("scanf(\"%d %f\", &i, &f);"),
       }),
+      i(0),
     }
   ),
 
@@ -60,7 +63,6 @@ return {
   s(
     { trig = "var", regTrig = false, wordTrig = true },
     {
-      -- ① 型の選択
       c(1, {
         t("int"),
         t("char"),
@@ -70,21 +72,31 @@ return {
         i(1, "type"),
       }),
       t(" "), i(2, "name"), t(" "),
-      -- ② スカラー or 配列 or 配列＋初期化 の選択
       c(3, {
-        -- scalar: int foo = 0;
-        sn(nil, { t("= "), i(1, "0"), t(";") }),
-
-        -- array without initializer: int foo[ size ];
-        sn(nil, { t("["), i(1, "size"), t("];") }),
-
-        -- array with initializer: int foo[ size ] = { values };
-        sn(nil, {
-          t("["), i(1, "size"), t("] = { "),
-          i(2, "values"), -- 例: 1, 2, 3
-          t(" };"),
-        }),
+        -- スカラー: int foo = 0;
+        t("= 0;"),
+        -- 配列（初期化なし）: int foo[size];
+        t("[size];"),
+        -- 配列＋初期化: int foo[size] = { values };
+        t("[size] = { values };"),
       }),
+      i(0),
+    }
+  ),
+
+  -- プロトタイプ用スニペット: "proto"
+  s(
+    { trig = "proto", regTrig = false, wordTrig = true },
+    {
+      -- ① 戻り値型の選択（int / void / char * / 自由入力）
+      c(1, {
+        t("int"),
+        t("void"),
+        t("char *"),
+        i(1, "type"),
+      }),
+      t(" "), i(2, "function_name"), t("("), i(3, "void"), t(");"),
+      i(0),
     }
   ),
 }
