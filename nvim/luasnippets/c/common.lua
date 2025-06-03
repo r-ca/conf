@@ -60,7 +60,7 @@ return {
   s(
     { trig = "var", regTrig = false, wordTrig = true },
     {
-      -- 型の選択
+      -- ① 型の選択
       c(1, {
         t("int"),
         t("char"),
@@ -70,10 +70,20 @@ return {
         i(1, "type"),
       }),
       t(" "), i(2, "name"), t(" "),
-      -- スカラー or 配列 の選択
+      -- ② スカラー or 配列 or 配列＋初期化 の選択
       c(3, {
+        -- scalar: int foo = 0;
         sn(nil, { t("= "), i(1, "0"), t(";") }),
+
+        -- array without initializer: int foo[ size ];
         sn(nil, { t("["), i(1, "size"), t("];") }),
+
+        -- array with initializer: int foo[ size ] = { values };
+        sn(nil, {
+          t("["), i(1, "size"), t("] = { "),
+          i(2, "values"), -- 例: 1, 2, 3
+          t(" };"),
+        }),
       }),
     }
   ),
