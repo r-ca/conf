@@ -1,95 +1,40 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'williamboman/mason-lspconfig.nvim',
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
+    'mason-org/mason-lspconfig.nvim',
   },
+
   config = function()
-    local mason = require('mason')
-    local mason_lspconfig = require('mason-lspconfig')
-    local lspconfig = require('lspconfig')
-
-    local capabilities = require('lsp.external.handler').capabilities;
-    local on_attach = function(client, bufnr)
-      require('lsp.external.handler').on_attach(client, bufnr)
-    end
-
-
-    mason.setup()
-    mason_lspconfig.setup({
+    require('mason-lspconfig').setup {
       ensure_installed = {
-        "cssls",
-        "css_variables",
-        "cssmodules_ls",
-        "docker_compose_language_service",
-        "dockerls",
-        -- "gopls",
-        "html",
-        "intelephense",
-        "jdtls",
-        "prismals",
-        "ts_ls",
-        "yamlls",
-        "lua_ls"
-      },
-    })
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup({
-          -- autostart = true,
-          capabilities = capabilities,
-          on_attach = on_attach,
-        })
-      end,
-
-      -- Javaは別で設定しているので
-      jdtls = function()
-      end,
-
-      ts_ls = function()
-        local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server")
-            :get_install_path() .. "/node_modules/@vue/language-server"
-        -- local vue_typescript_plugin = os.getenv("HOME") .. "/.local/share/mise/installs/node/20/lib/node_modules/@vue/language-server"
-        lspconfig.ts_ls.setup({
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = vue_typescript_plugin,
-                languages = { "javascript", "typescript", "vue" }
-              },
-            },
-          },
-          filetypes = {
-            "javascript", "typescript", "vue", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx"
-          },
-          capabilities = capabilities,
-          on_attach = on_attach,
-        })
-      end,
-
-      intelephense = function()
-        lspconfig.intelephense.setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          filetypes = { "php", "blade" },
-        })
-      end,
-
-
-      rust_analyzer = function()
-        lspconfig.rust_analyzer.setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = {
-            ["rust-analyzer"] = {
-              check = {
-                command = "clippy",
-              },
-            },
-          },
-        })
-      end,
-    })
+        -- CSS
+        'cssls',
+        'css_variables',
+        'cssmodules_ls',
+        -- Docker/Docker-compose
+        'dockerls',
+        'docker_compose_language_service',
+        -- HTML
+        'html',
+        -- PHP
+        'intelephense',
+        'blade-formatter',
+        -- JavaScript/TypeScript and related
+        'ts_ls',
+        'prismals',
+        'tailwindcss',
+        'vue_ls',
+        -- Rust
+        'rust_analyzer',
+        -- Python
+        'jedi_language_server',
+        -- Common
+        'jsonls',
+        'fixjson',
+        'yamlls',
+        'gh_actions_ls',
+      }
+    }
   end,
 }
