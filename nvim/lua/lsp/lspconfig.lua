@@ -43,5 +43,17 @@ return {
         }
       }
     }
+
+    -- TODO: 別のファイルに分割する?, /lspディレクトリを使って設定できるようになったらしいのでその方法にする?
+
+    local capabilities = require('lsp.external.handler').capabilities
+    local on_attach = require('lsp.external.handler').on_attach
+
+    -- Common
+    vim.lsp.config('*', {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
   end,
 }
