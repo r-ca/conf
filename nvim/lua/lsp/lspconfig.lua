@@ -57,7 +57,6 @@ return {
 
     -- TS(with Vue)
     local vue_ts_plugin = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
-
     vim.lsp.config('ts_ls', {
       init_options = {
         plugins = {
@@ -73,10 +72,12 @@ return {
       },
     })
 
+    -- PHP
     vim.lsp.config('intelephense', {
       filetypes = { 'php', 'blade' },
     })
 
+    -- Rust
     vim.lsp.config('rust_analyzer', {
       settings = {
         ['rust-analyzer'] = {
