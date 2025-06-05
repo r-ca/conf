@@ -74,5 +74,23 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    vim.lsp.config('intelephense', {
+      filetypes = { 'php', 'blade' },
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    vim.lsp.config('rust_analyzer', {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        ['rust-analyzer'] = {
+          check = {
+            command = "clippy",
+          },
+        },
+      },
+    })
   end,
 }
