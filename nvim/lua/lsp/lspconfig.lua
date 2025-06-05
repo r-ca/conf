@@ -56,9 +56,7 @@ return {
     })
 
     -- TS(with Vue)
-    -- local vue_ts_plugin = require('mason-registry').get_package('vue-language-server')
-    --     :get_install_path() .. "/node_modules/@vue/language-server"
-    local vue_ts_plugin = vim.fn.expand("$MASON/share/vue-language-server/node_modules/@vue/language-server")
+    local vue_ts_plugin = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
 
     vim.lsp.config('ts_ls', {
       init_options = {
