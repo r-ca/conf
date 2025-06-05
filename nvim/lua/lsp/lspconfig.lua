@@ -29,7 +29,6 @@ return {
         "jdtls",
         "prismals",
         "ts_ls",
-        "volar",
         "yamlls",
         "lua_ls"
       },
