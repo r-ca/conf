@@ -29,11 +29,18 @@ return {
         'rust_analyzer',
         -- Python
         'jedi_language_server',
+        -- Java
+        'jdtls',
         -- Common
         'jsonls',
         'fixjson',
         'yamlls',
         'gh_actions_ls',
+      },
+      automatic_enable = {
+        exclude = {
+          'jdtls' -- lang/nvim-jdtlsでセットアップしているので, TODO: 統合する
+        }
       }
     }
   end,
