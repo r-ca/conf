@@ -21,6 +21,7 @@ require('lazy').setup({
     { import = "plugins" },
     { import = "lsp" },
     { import = "lsp.lang" },
+    { import = "dap" },
     { import = "colors" }
   }
 })
