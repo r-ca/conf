@@ -55,25 +55,26 @@ return {
       on_attach = on_attach,
     })
 
-    vim.lsp.config('ts_ls', function()
-      local vue_ts_plugin = require('mason-registry').get_package('vue-language-server')
-          :get_install_path() .. "/node_modules/@vue/language-server"
-      return {
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vue_ts_plugin,
-              languages = { "javascript", "typescript", "vue" }
-            },
+    -- TS(with Vue)
+    -- local vue_ts_plugin = require('mason-registry').get_package('vue-language-server')
+    --     :get_install_path() .. "/node_modules/@vue/language-server"
+    local vue_ts_plugin = vim.fn.expand("$MASON/share/vue-language-server/node_modules/@vue/language-server")
+
+    vim.lsp.config('ts_ls', {
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_ts_plugin,
+            languages = { "javascript", "typescript", "vue" }
           },
         },
-        filetypes = {
-          "javascript", "typescript", "vue", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx"
-        },
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-    end)
+      },
+      filetypes = {
+        "javascript", "typescript", "vue", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx"
+      },
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
   end,
 }
