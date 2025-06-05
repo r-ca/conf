@@ -19,7 +19,7 @@ return {
         'html',
         -- PHP
         'intelephense',
-        'blade-formatter',
+        -- 'blade-formatter',
         -- JavaScript/TypeScript and related
         'ts_ls',
         'prismals',
@@ -33,7 +33,7 @@ return {
         'jdtls',
         -- Common
         'jsonls',
-        'fixjson',
+        -- 'fixjson',
         'yamlls',
         'gh_actions_ls',
       },
