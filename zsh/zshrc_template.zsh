@@ -13,7 +13,8 @@ source "$ZSH_D/prompt/index.zsh"
 source "$ZSH_D/alias/alias_common.zsh"
 
 # Utils
-source "$ZSH_D/utils.zsh"
+source "$ZSH_D/utils/add_to_path.zsh"
+source "$ZSH_D/utils/mark.zsh"
 
 # OS/Arch specific
 source "$ZSH_D/alias/alias_macos.zsh"
