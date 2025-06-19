@@ -11,6 +11,7 @@ source "$ZSH_D/bootstrap.zsh"
 source "$ZSH_D/configs.zsh"
 source "$ZSH_D/prompt/index.zsh"
 source "$ZSH_D/alias/alias_common.zsh"
+source "$ZSH_D/alias/alias_mark.zsh"
 
 # Utils
 source "$ZSH_D/utils/add_to_path.zsh"
