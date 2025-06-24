@@ -16,7 +16,6 @@ return {
       }),
     }
   ),
-
   -- 関数テンプレート: "func"
   s(
     { trig = "func", regTrig = false, wordTrig = true },
@@ -42,18 +41,20 @@ return {
       t({ "", "}" }),
     }
   ),
-
-  -- printf 用スニペット: "print"
+  -- printf 用スニペット: "print" (拡張版)
   s(
     { trig = "print", regTrig = false, wordTrig = true },
     {
       c(1, {
-        sn(nil, { t("printf(\""), i(1, "format"), t("\");") }),
+        -- パターン1: printf("text");
+        t("printf(\"text\");"),
+        -- パターン2: printf("{カーソル}\n");
+        sn(nil, { t("printf(\""), i(1, "format"), t("\\n\");") }),
+        -- パターン3: printf("{カーソル}", {引数});
         sn(nil, { t("printf(\""), i(1, "format"), t("\", "), i(2, "args"), t(");") }),
       }),
     }
   ),
-
   -- scanf 用スニペット: "scan"
   s(
     { trig = "scan", regTrig = false, wordTrig = true },
@@ -64,7 +65,6 @@ return {
       }),
     }
   ),
-
   -- 変数宣言スニペット: "var"
   s(
     { trig = "var", regTrig = false, wordTrig = true },
