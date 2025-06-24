@@ -40,12 +40,10 @@ function F.windows()
 end
 
 function F.luasnip()
-  -- TODO: LuaSnipが動いてないときは他のことに使えるようにしたい
   kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', function()
     if luasnip.jumpable(1) then
       luasnip.jump(1)
     else
-      -- LuaSnipがアクティブでない場合は通常のカーソル移動
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, false, true), "n", false)
     end
   end, { _autoCmd = false })
