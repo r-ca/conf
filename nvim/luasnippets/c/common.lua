@@ -17,7 +17,7 @@ return {
     }
   ),
 
-  -- 関数テンプレート: "func" (修正版)
+  -- 関数テンプレート: "func" (引数選択付き修正版)
   s(
     { trig = "func", regTrig = false, wordTrig = true },
     {
@@ -26,13 +26,18 @@ return {
         t("int"),
         t("void"),
         t("char *"),
-        sn(nil, { i(1, "type") }), -- sn でラップして独立したコンテキストに
+        sn(nil, { i(1, "type") }),
       }),
       t(" "),
       i(2, "function_name"),
       t("("),
-      i(3, "void"),
-      t({ ") {", "\t" }), -- \t でインデントを明示
+      -- 引数の選択
+      c(3, {
+        t("void"),
+        t("int argc, char const *argv[]"),
+        sn(nil, { i(1, "params") }),
+      }),
+      t({ ") {", "\t" }),
       i(4, "// TODO: implement"),
       t({ "", "}" }),
     }
@@ -71,7 +76,7 @@ return {
         t("float"),
         t("double"),
         t("char *"),
-        sn(nil, { i(1, "type") }), -- sn でラップ
+        sn(nil, { i(1, "type") }),
       }),
       t(" "),
       i(2, "name"),
@@ -85,7 +90,7 @@ return {
         -- array with initializer: int foo[ size ] = { values };
         sn(nil, {
           t("["), i(1, "size"), t("] = { "),
-          i(2, "values"), -- 例: 1, 2, 3
+          i(2, "values"),
           t(" };"),
         }),
       }),
