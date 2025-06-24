@@ -46,11 +46,9 @@ return {
     { trig = "print", regTrig = false, wordTrig = true },
     {
       c(1, {
-        -- パターン1: printf("text");
-        sn(nil, { t("printf(\""), i(1, "text"), t("\");") }),
-        -- パターン2: printf("{カーソル}\n");
+        sn(nil, { t("printf(\""), i(1, "format"), t("\");") }),
         sn(nil, { t("printf(\""), i(1, "format"), t("\\n\");") }),
-        -- パターン3: printf("{カーソル}", {引数});
+        sn(nil, { t("printf(\""), i(1, "format"), t("\", "), i(2, "args"), t(");") }),
         sn(nil, { t("printf(\""), i(1, "format"), t("\", "), i(2, "args"), t(");") }),
       }),
     }
