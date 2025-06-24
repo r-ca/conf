@@ -18,7 +18,6 @@ function F.global_navigation()
   kmap.terminal('<C-l>', '<C-\\><C-N>:wincmd l')
   kmap.terminal('<C-j>', '<C-\\><C-N>:wincmd j')
   kmap.terminal('<C-k>', '<C-\\><C-N>:wincmd k')
-
 end
 
 function F.common_navigation()
@@ -42,21 +41,40 @@ end
 
 function F.luasnip()
   -- TODO: LuaSnipが動いてないときは他のことに使えるようにしたい
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', function ()
-    luasnip.jump(1)
-  end, { _autoCmd = false })
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-h>', function ()
-    luasnip.jump(-1)
-  end, { _autoCmd = false })
-
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-n>', function ()
-    luasnip.change_choice(1)
-  end, { _autoCmd = false })
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-p>', function ()
-    luasnip.change_choice(-1)
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-l>', function()
+    if luasnip.jumpable(1) then
+      luasnip.jump(1)
+    else
+      -- LuaSnipがアクティブでない場合は通常のカーソル移動
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, false, true), "n", false)
+    end
   end, { _autoCmd = false })
 
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-e>', function ()
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-h>', function()
+    if luasnip.jumpable(-1) then
+      luasnip.jump(-1)
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, false, true), "n", false)
+    end
+  end, { _autoCmd = false })
+
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-j>', function()
+    if luasnip.choice_active() then
+      luasnip.change_choice(1)
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, false, true), "n", false)
+    end
+  end, { _autoCmd = false })
+
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-k>', function()
+    if luasnip.choice_active() then
+      luasnip.change_choice(-1)
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Up>", true, false, true), "n", false)
+    end
+  end, { _autoCmd = false })
+
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-e>', function()
     luasnip.expand()
   end, { _autoCmd = false })
 end
@@ -145,12 +163,6 @@ function F.common()
 
   -- Escape→Insert next line
   kmap.insert('<C-o>', '<Esc>o', { _autoCmd = false })
-
-  -- Move cursor in insert mode
-  -- kmap.insert('<C-h>', '<Left>', { _autoCmd = false })
-  -- kmap.insert('<C-l>', '<Right>', { _autoCmd = false })
-  -- kmap.insert('<C-j>', '<Down>', { _autoCmd = false })
-  -- kmap.insert('<C-k>', '<Up>', { _autoCmd = false })
 end
 
 function F.overseer()
