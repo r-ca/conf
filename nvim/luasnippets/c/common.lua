@@ -49,7 +49,7 @@ return {
         sn(nil, { t("printf(\""), i(1, "format"), t("\");") }),
         sn(nil, { t("printf(\""), i(1, "format"), t("\\n\");") }),
         sn(nil, { t("printf(\""), i(1, "format"), t("\", "), i(2, "args"), t(");") }),
-        sn(nil, { t("printf(\""), i(1, "format"), t("\\n", "), i(2, "args"), t(");") }),
+        sn(nil, { t("printf(\""), i(1, "format"), t("\\n\", "), i(2, "args"), t(");") }),
       }),
     }
   ),
