@@ -147,10 +147,10 @@ function F.common()
   kmap.insert('<C-o>', '<Esc>o', { _autoCmd = false })
 
   -- Move cursor in insert mode
-  kmap.insert('<C-h>', '<Left>', { _autoCmd = false })
-  kmap.insert('<C-l>', '<Right>', { _autoCmd = false })
-  kmap.insert('<C-j>', '<Down>', { _autoCmd = false })
-  kmap.insert('<C-k>', '<Up>', { _autoCmd = false })
+  -- kmap.insert('<C-h>', '<Left>', { _autoCmd = false })
+  -- kmap.insert('<C-l>', '<Right>', { _autoCmd = false })
+  -- kmap.insert('<C-j>', '<Down>', { _autoCmd = false })
+  -- kmap.insert('<C-k>', '<Up>', { _autoCmd = false })
 end
 
 function F.overseer()
