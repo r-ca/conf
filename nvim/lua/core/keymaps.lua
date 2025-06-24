@@ -56,19 +56,19 @@ function F.luasnip()
     end
   end, { _autoCmd = false })
 
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-j>', function()
-    if luasnip.choice_active() then
-      luasnip.change_choice(1)
-    else
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, false, true), "n", false)
-    end
-  end, { _autoCmd = false })
-
-  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-k>', function()
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-p>', function()
     if luasnip.choice_active() then
       luasnip.change_choice(-1)
     else
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Up>", true, false, true), "n", false)
+      -- add some?
+    end
+  end, { _autoCmd = false })
+
+  kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-n>', function()
+    if luasnip.choice_active() then
+      luasnip.change_choice(1)
+    else
+      -- add some?
     end
   end, { _autoCmd = false })
 
