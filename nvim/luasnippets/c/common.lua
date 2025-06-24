@@ -17,7 +17,7 @@ return {
     }
   ),
 
-  -- 関数テンプレート: "func" (引数選択付き修正版)
+  -- 関数テンプレート: "func"
   s(
     { trig = "func", regTrig = false, wordTrig = true },
     {
