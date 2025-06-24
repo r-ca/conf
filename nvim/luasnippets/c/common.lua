@@ -47,7 +47,7 @@ return {
     {
       c(1, {
         -- パターン1: printf("text");
-        t("printf(\"text\");"),
+        sn(nil, { t("printf(\""), i(1, "text"), t("\");") }),
         -- パターン2: printf("{カーソル}\n");
         sn(nil, { t("printf(\""), i(1, "format"), t("\\n\");") }),
         -- パターン3: printf("{カーソル}", {引数});
