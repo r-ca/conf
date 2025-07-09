@@ -83,6 +83,7 @@
   "telescope-menu.nvim": { "branch": "master", "commit": "9751fc0cb7041ba436c27a86f8faefc5ffe7f8bd" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "tiny-devicons-auto-colors.nvim": { "branch": "main", "commit": "51f548421f8a74680eff27d283c9d5ea6e8d0074" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "7c1595733366d25ddd3a6785cf6327e2e460bae9" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "transparent.nvim": { "branch": "main", "commit": "d41ae9b56ac2706cb3db4b16afe5cd6903013937" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
