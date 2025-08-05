@@ -100,6 +100,7 @@ function F.lsp_actions()
   kmap.normal('ga', 'Lspsaga code_action')
   kmap.normal('gs', 'Lspsaga show_line_diagnostics')
   kmap.normal('gr', 'Lspsaga rename')
+  kmap.normal('gl', require('lsp_lines').toggle)
 
   kmap.normal('gf', 'lua vim.lsp.buf.format()')
   kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
