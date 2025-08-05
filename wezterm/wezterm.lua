@@ -19,6 +19,8 @@ config.font_size = 11
 
 config.use_ime = true
 
+-- config.treat_east_asian_ambiguous_width_as_wide = true
+
 config.hide_tab_bar_if_only_one_tab = true
 
 wezterm.on('window-config-reloaded', function(window, pane)
