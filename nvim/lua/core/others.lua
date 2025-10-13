@@ -97,3 +97,16 @@ end, {})
 vim.api.nvim_create_user_command("NeotestAttach", function()
   neotest.run.attach()
 end, {})
+
+local float_resize = require("testing.float-resize")
+float_resize.setup(
+  {
+    toggle = "<leader>fm",
+    move = { left = "<Left>", right = "<Right>", up = "<Up>", down = "<Down>" },
+    resize = {
+      shrink = { left = "h", right = "l", up = "k", down = "j" },
+      expand = { left = "H", right = "L", up = "K", down = "J" },
+    },
+    quit = "q",
+  }
+)
