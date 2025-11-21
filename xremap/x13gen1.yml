@@ -20,6 +20,7 @@ modmap:
       KEY_SYSRQ: KEY_RIGHTCTRL
       KEY_RIGHTCTRL: KEY_SYSRQ
       KEY_WAKEUP: KEY_LEFTMETA
+      KEY_RIGHTSHIFT: KEY_RIGHTMETA
 
 keymap:
   - name: FN-like
