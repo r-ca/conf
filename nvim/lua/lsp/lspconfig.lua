@@ -58,14 +58,13 @@ return {
     -- TS(with Vue)
     local vue_ts_plugin = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
     vim.lsp.config('ts_ls', {
-      capabilities = capabilities,
-      on_attach = on_attach,
       init_options = {
         plugins = {
           {
             name = "@vue/typescript-plugin",
             location = vue_ts_plugin,
-            languages = { "javascript", "typescript", "vue" }
+            languages = { "javascript", "typescript", "vue" },
+            configNamespace = 'typescript'
           },
         },
       },
@@ -74,17 +73,17 @@ return {
       },
     })
 
+    vim.lsp.config('vue_ls', {
+      filetypes = { 'vue' },
+    })
+
     -- PHP
     vim.lsp.config('intelephense', {
-      capabilities = capabilities,
-      on_attach = on_attach,
       filetypes = { 'php', 'blade' },
     })
 
     -- CSS/Tailwind
     vim.lsp.config('cssls', {
-      capabilities = capabilities,
-      on_attach = on_attach,
       settings = {
         css = {
           validate = true,
@@ -97,8 +96,6 @@ return {
 
     -- Rust
     vim.lsp.config('rust_analyzer', {
-      capabilities = capabilities,
-      on_attach = on_attach,
       settings = {
         ['rust-analyzer'] = {
           check = {
