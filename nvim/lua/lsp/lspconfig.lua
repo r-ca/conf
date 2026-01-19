@@ -92,16 +92,6 @@ return {
             unknownAtRules = "ignore",
           },
         },
-        scss = {
-          lint = {
-            unknownAtRules = "ignore",
-          },
-        },
-        less = {
-          lint = {
-            unknownAtRules = "ignore",
-          },
-        },
       },
     })
 
