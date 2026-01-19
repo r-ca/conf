@@ -80,6 +80,7 @@
   "screenkey.nvim": { "branch": "main", "commit": "16390931d847b1d5d77098daccac4e55654ac9e2" },
   "sidebar.nvim": { "branch": "main", "commit": "082e4903c1659a65e27a075b752178b0c56fffb2" },
   "symbol-usage.nvim": { "branch": "main", "commit": "e07c07dfe7504295a369281e95a24e1afa14b243" },
+  "tailwind-tools": { "branch": "master", "commit": "fbe982901d4508b0dcd80e07addf0fcb6dab6c49" },
   "telescope-egrepify.nvim": { "branch": "master", "commit": "cd9342b95c1a8cff2e41ba5041ae3912f47595cc" },
   "telescope-menu.nvim": { "branch": "master", "commit": "aa70dce1f130bcfd3f4e91331c4be55a18b8f59c" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
