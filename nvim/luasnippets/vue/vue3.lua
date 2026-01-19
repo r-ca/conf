@@ -8,7 +8,7 @@ local d = ls.dynamic_node
 return {
   -- Setup empty Vue3 component
   s(
-    { trig = "vuet", regTrig = false, wordTrig = false },
+    { trig = "vuecomp", regTrig = false, wordTrig = false },
     {
       t("<template>"),
       t({ "", "  " }), i(1, "コンポーネントHTML"), t({ "", "</template>", "" }),
@@ -20,4 +20,25 @@ return {
       t({ "", "</style>" }),
     }
   ),
+
+  -- unscoped style tag
+  s(
+    { trig = "style", regTrig = false, wordTrig = false },
+    {
+      t("<style>"), t({ "", "" }),
+      i(1, "/* スタイル */"),
+      t({ "", "</style>" }),
+    }
+  ),
+
+  -- scoped style tag
+  s(
+    { trig = "styles", regTrig = false, wordTrig = false },
+    {
+      t("<style scoped>"), t({ "", "" }),
+      i(1, "/* スタイル */"),
+      t({ "", "</style>" }),
+    }
+  ),
+
 }
