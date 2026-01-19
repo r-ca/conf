@@ -12,6 +12,7 @@ return {
     { 'ray-x/cmp-sql' },
     { 'hrsh7th/cmp-calc' },
     { 'hrsh7th/cmp-emoji' },
+    { 'saadparwaiz1/cmp_luasnip' },
   },
   config = function()
     require('cmp').setup({
@@ -32,6 +33,7 @@ return {
         { name = 'sql' },
         { name = 'calc' },
         { name = 'emoji' },
+        { name = 'luasnip' },
       },
 
       formatting = {
