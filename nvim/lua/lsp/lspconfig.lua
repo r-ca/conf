@@ -58,6 +58,8 @@ return {
     -- TS(with Vue)
     local vue_ts_plugin = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
     vim.lsp.config('ts_ls', {
+      capabilities = capabilities,
+      on_attach = on_attach,
       init_options = {
         plugins = {
           {
@@ -74,11 +76,39 @@ return {
 
     -- PHP
     vim.lsp.config('intelephense', {
+      capabilities = capabilities,
+      on_attach = on_attach,
       filetypes = { 'php', 'blade' },
+    })
+
+    -- CSS/Tailwind
+    vim.lsp.config('cssls', {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        css = {
+          validate = true,
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+        scss = {
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+        less = {
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+      },
     })
 
     -- Rust
     vim.lsp.config('rust_analyzer', {
+      capabilities = capabilities,
+      on_attach = on_attach,
       settings = {
         ['rust-analyzer'] = {
           check = {
