@@ -24,12 +24,14 @@ config.use_ime = true
 config.hide_tab_bar_if_only_one_tab = true
 
 wezterm.on('window-config-reloaded', function(window, pane)
-  wezterm.log_info 'the config was reloaded for this window!'
+    wezterm.log_info 'the config was reloaded for this window!'
 end)
 
 config.disable_default_key_bindings = true
 
-config.color_scheme = 'Ashes (light) (terminal.sexy)'
+config.color_scheme = 'ayu_light'
+
+config.enable_kitty_graphics = true
 
 -- and finally, return the configuration to wezterm
 return config
