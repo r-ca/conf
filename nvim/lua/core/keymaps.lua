@@ -73,7 +73,7 @@ function F.luasnip()
   end, { _autoCmd = false })
 
   kmap.set({ Mode.INSERT, Mode.SELECT }, '<C-e>', function()
-    luasnip.expand()
+    luasnip.expand({})
   end, { _autoCmd = false })
 end
 
