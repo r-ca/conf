@@ -91,6 +91,12 @@ return {
             unknownAtRules = "ignore",
           },
         },
+        scss = {
+          validate = true,
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
       },
     })
 
