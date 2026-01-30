@@ -101,6 +101,7 @@ return {
     })
 
     vim.lsp.config('somesass_ls', {
+      filetypes = { 'sass', 'scss', 'vue' },
       settings = {
         somesass = {
           scss = {
