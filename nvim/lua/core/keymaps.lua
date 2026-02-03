@@ -95,7 +95,7 @@ end
 -- LSP Actions
 function F.lsp_actions()
     kmap.normal('<Space>', 'Lspsaga hover_doc')
-    kmap.normal('<Enter>', 'Lspsaga finder')
+    kmap.normal('<Enter>', 'Lspsaga finder default')
     kmap.normal('<Leader>ld', 'Lspsaga preview_definition')
     kmap.normal('<Leader>la', 'Lspsaga code_action')
     kmap.normal('<Leader>ls', 'Lspsaga show_line_diagnostics')
