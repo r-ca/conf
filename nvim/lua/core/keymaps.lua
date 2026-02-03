@@ -96,14 +96,15 @@ end
 function F.lsp_actions()
     kmap.normal('<Space>', 'Lspsaga hover_doc')
     kmap.normal('<Enter>', 'Lspsaga finder')
-    kmap.normal('gd', 'Lspsaga preview_definition')
-    kmap.normal('ga', 'Lspsaga code_action')
-    kmap.normal('gs', 'Lspsaga show_line_diagnostics')
-    kmap.normal('gr', 'Lspsaga rename')
-    kmap.normal('gl', require('lsp_lines').toggle)
+    kmap.normal('<Leader>ld', 'Lspsaga preview_definition')
+    kmap.normal('<Leader>la', 'Lspsaga code_action')
+    kmap.normal('<Leader>ls', 'Lspsaga show_line_diagnostics')
+    kmap.normal('<Leader>lr', 'Lspsaga rename')
+    kmap.normal('<Leader>ll', require('lsp_lines').toggle)
 
-    kmap.normal('gf', 'lua vim.lsp.buf.format()')
-    kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
+    kmap.normal('<Leader>lf', 'lua vim.lsp.buf.format()')
+    -- kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
+    -- Finder内でのジャンプで代替できるかも?
 end
 
 function F.shift_hjkl()
