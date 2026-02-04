@@ -1,5 +1,5 @@
 -- Change leader to BS
-vim.g.mapleader = vim.api.nvim_replace_termcodes('<BS>', false, false, true)
+vim.g.mapleader = vim.api.nvim_replace_termcodes('s', false, false, true)
 
 -- Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
