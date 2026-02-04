@@ -103,8 +103,7 @@ function F.lsp_actions()
     kmap.normal('<Leader>ll', require('lsp_lines').toggle)
 
     kmap.normal('<Leader>lf', 'lua vim.lsp.buf.format()')
-    -- kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
-    -- Finder内でのジャンプで代替できるかも?
+    kmap.normal('<S-CR>', 'lua vim.lsp.buf.definition()')
 end
 
 function F.shift_hjkl()
