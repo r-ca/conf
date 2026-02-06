@@ -165,7 +165,8 @@ function F.common()
 end
 
 function F.overseer()
-    kmap.normal('<Leader>r', 'OverseerRun')
+    kmap.normal('<Leader>rr', 'OverseerRun')
+    kmap.normal('<Leader>ro', 'OverseerOpen')
 end
 
 function F.terminal()
