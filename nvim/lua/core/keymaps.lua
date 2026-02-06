@@ -137,8 +137,8 @@ function F.common()
     kmap.normal('<C-f>', 'Neotree toggle')
 
     -- Clipboard
-    kmap.set({ Mode.NORMAL, Mode.VISUAL }, 'cp', '"*p')
-    kmap.set({ Mode.NORMAL, Mode.VISUAL }, 'cy', '"*y')
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<Leader>cp', '"*p')
+    kmap.set({ Mode.NORMAL, Mode.VISUAL }, '<Leader>cy', '"*y')
 
     -- TUIs
     -- LazyGit
@@ -166,6 +166,10 @@ end
 
 function F.overseer()
     kmap.normal('<Leader>r', 'OverseerRun')
+end
+
+function F.terminal()
+    kmap.terminal('<C-Esc>', '<C-\\><C-N>', { _autoCmd = false });
 end
 
 function F.float()
