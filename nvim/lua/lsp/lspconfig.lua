@@ -88,10 +88,6 @@ return {
       },
     })
 
-    vim.lsp.config('vue_ls', {
-      filetypes = { 'vue' },
-    })
-
     -- PHP
     vim.lsp.config('intelephense', {
       filetypes = { 'php', 'blade' },
