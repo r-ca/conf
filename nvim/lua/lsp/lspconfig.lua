@@ -142,5 +142,7 @@ return {
         },
       },
     })
+
+    vim.lsp.enable('sourcekit')
   end,
 }
