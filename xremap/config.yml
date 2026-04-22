@@ -14,7 +14,7 @@ modmap:
 keymap:
 - name: Common
   remap:
-    SHIFT-SPACE: Esc
+# SHIFT-SPACE: Esc
     SUPER-z: C-z
     SUPER-x: C-x
     SUPER-c: C-c
