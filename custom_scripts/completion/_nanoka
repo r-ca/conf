@@ -36,7 +36,7 @@ _nanoka() {
   for f in "$SCRIPT_DIR"/*.sh(N); do
     [[ -f $f ]] || continue
     # :t => basename, :r => remove extension
-    scripts+=( "${f:t:r}" ) 
+    scripts+=( "${f:t:r}" )
   done
 
   subcommands=( "${commands[@]}" "${scripts[@]}" )
@@ -87,4 +87,4 @@ _nanoka() {
   esac
 }
 
-# _nanoka "$@"
+_nanoka "$@"
