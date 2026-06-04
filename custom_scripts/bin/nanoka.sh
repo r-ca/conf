@@ -88,6 +88,7 @@ add_script() {
     cat > "$script_path" <<EOF
 #!/bin/bash
 # Description: $raw_name command
+# Options:
 
 $escaped_command
 EOF

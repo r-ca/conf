@@ -6,6 +6,33 @@ _nanoka() {
   local -a subcommands
   local context state line
 
+  _nanoka_complete_script_options() {
+    local script_name="$1"
+    local script_path="$SCRIPT_DIR/${script_name}.sh"
+    local options_line
+    local raw_options
+    local option
+    local -a script_options
+
+    [[ "$script_name" =~ '^[A-Za-z0-9._-]+$' ]] || return 1
+    [[ -r "$script_path" ]] || return 1
+
+    options_line="$(grep -m1 '^# Options:' "$script_path" 2>/dev/null)"
+    [[ -n "$options_line" ]] || return 1
+
+    raw_options="${options_line#\# Options: }"
+    for option in ${(s: :)raw_options}; do
+      [[ -n "$option" ]] || continue
+      [[ "$option" == -* ]] || continue
+      script_options+=( "$option" )
+    done
+
+    (( ${#script_options[@]} > 0 )) || return 1
+
+    _describe 'option' script_options
+    return 0
+  }
+
   for f in "$SCRIPT_DIR"/*.sh(N); do
     [[ -f $f ]] || continue
     scripts+=( "${f:t:r}" ) 
@@ -44,8 +71,15 @@ _nanoka() {
             _default
           fi
           ;;
+        run)
+          _nanoka_complete_script_options "${words[3]}" || _default
+          ;;
         *)
-          _default
+          if (( ${scripts[(Ie)${words[2]}]} )); then
+            _nanoka_complete_script_options "${words[2]}" || _default
+          else
+            _default
+          fi
           ;;
       esac
       ;;
