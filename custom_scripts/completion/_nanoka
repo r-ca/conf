@@ -12,15 +12,14 @@ _nanoka() {
 
   _arguments -C \
     '1:command:->command' \
-    '2:script name:->script' \
-    '3:command name:->add_command' \
+    '2:argument:->subcommand_arg' \
     '*::args:->args'
 
   case "$state" in
     command)
       _describe 'command' commands
       ;;
-    script)
+    subcommand_arg)
       case "${words[2]}" in
         run)
           _describe 'script' scripts
@@ -30,15 +29,19 @@ _nanoka() {
           ;;
       esac
       ;;
-    add_command)
-      if [[ "${words[2]}" == "add" ]]; then
-        _command_names
-      else
-        _default
-      fi
-      ;;
     args)
-      _default
+      case "${words[2]}" in
+        add)
+          if (( CURRENT == 4 )); then
+            _command_names
+          else
+            _default
+          fi
+          ;;
+        *)
+          _default
+          ;;
+      esac
       ;;
   esac
 }
