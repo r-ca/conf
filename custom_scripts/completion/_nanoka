@@ -3,6 +3,7 @@
 _nanoka() {
   local commands=("list" "run" "add" "help")
   local -a scripts
+  local -a subcommands
   local context state line
 
   for f in "$SCRIPT_DIR"/*.sh(N); do
@@ -10,14 +11,16 @@ _nanoka() {
     scripts+=( "${f:t:r}" ) 
   done
 
+  subcommands=( "${commands[@]}" "${scripts[@]}" )
+
   _arguments -C \
-    '1:command:->command' \
+    '1:subcommand:->command' \
     '2:argument:->subcommand_arg' \
     '*::args:->args'
 
   case "$state" in
     command)
-      _describe 'command' commands
+      _describe 'subcommand' subcommands
       ;;
     subcommand_arg)
       case "${words[2]}" in
@@ -26,6 +29,9 @@ _nanoka() {
           ;;
         add)
           _message 'new script name'
+          ;;
+        *)
+          _default
           ;;
       esac
       ;;

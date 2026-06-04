@@ -8,11 +8,13 @@ show_help() {
     echo "Usage:"
     echo "  nanoka list"
     echo "  nanoka run <script> [args...]"
+    echo "  nanoka <script> [args...]"
     echo "  nanoka add <script> <command...>"
     echo
     echo "Commands:"
     echo "  list          List available scripts"
     echo "  run <script>  Run a script with optional arguments"
+    echo "  <script>      Run a created script directly"
     echo "  add <script>  Register a new script quickly from a command"
     echo "  help          Show this help message"
     exit 0
@@ -120,7 +122,6 @@ case "$COMMAND" in
         show_help
         ;;
     *)
-        echo "Error: Unknown command '$COMMAND'."
-        show_help
+        run_script "$COMMAND" "$@"
         ;;
 esac
