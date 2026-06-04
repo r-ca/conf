@@ -11,6 +11,23 @@ if [[ "$1" == "-n" ]]; then
     shift
 fi
 
+# --- Safety confirmation prompt ---
+# Only prompt for confirmation if NOT in new scratchpad mode (-n)
+if [[ $is_new -eq 0 ]]; then
+    # Show a strong warning if executed in the HOME or ROOT directory
+    if [[ "$PWD" == "$HOME" || "$PWD" == "/" ]]; then
+        echo -e "\n🚨 WARNING: You are about to dump your ENTIRE $PWD directory!"
+    fi
+
+    # Abort if the input is not 'y' or 'Y'
+    read -r -p "Proceed to dump '$PWD'? [y/N]: " response
+    if [[ ! "$response" =~ ^[Yy]$ ]]; then
+        echo "Aborted."
+        exit 0
+    fi
+fi
+# ----------------------------------
+
 # Get the current timestamp in YYYYMMDD_HHMMSS format
 timestamp=$(date +"%Y%m%d_%H%M%S")
 
