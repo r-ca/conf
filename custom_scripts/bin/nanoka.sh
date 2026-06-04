@@ -5,12 +5,32 @@
 
 # Show help message
 show_help() {
-    echo "Usage: run_script <command> [script] [args...]"
+    echo "Usage:"
+    echo "  nanoka list"
+    echo "  nanoka run <script> [args...]"
+    echo "  nanoka add <script> <command...>"
     echo
     echo "Commands:"
     echo "  list          List available scripts"
     echo "  run <script>  Run a script with optional arguments"
+    echo "  add <script>  Register a new script quickly from a command"
+    echo "  help          Show this help message"
     exit 0
+}
+
+normalize_script_name() {
+    local script_name="$1"
+
+    if [[ "$script_name" != *.sh ]]; then
+        script_name="${script_name}.sh"
+    fi
+
+    if [[ ! "$script_name" =~ ^[A-Za-z0-9._-]+\.sh$ ]]; then
+        echo "Error: Invalid script name '$1'. Use only letters, numbers, ., _, -."
+        exit 1
+    fi
+
+    printf '%s\n' "$script_name"
 }
 
 # List available scripts
@@ -26,13 +46,9 @@ list_scripts() {
 
 # Run a script
 run_script() {
-    local script_name="$1"
+    local script_name
+    script_name="$(normalize_script_name "$1")"
     shift
-
-    # Append .sh if not present
-    if [[ "$script_name" != *.sh ]]; then
-        script_name="${script_name}.sh"
-    fi
 
     local script_path="$SCRIPT_DIR/$script_name"
 
@@ -42,6 +58,40 @@ run_script() {
     fi
 
     "$script_path" "$@"
+}
+
+add_script() {
+    local raw_name="$1"
+    shift
+
+    if [ -z "$raw_name" ] || [ $# -lt 1 ]; then
+        echo "Error: Missing script name or command."
+        echo "Usage: nanoka add <script> <command...>"
+        exit 1
+    fi
+
+    local script_name
+    script_name="$(normalize_script_name "$raw_name")"
+    local script_path="$SCRIPT_DIR/$script_name"
+
+    if [ -e "$script_path" ]; then
+        echo "Error: Script '$script_name' already exists."
+        exit 1
+    fi
+
+    local escaped_command
+    escaped_command="$(printf '%q ' "$@")"
+    escaped_command="${escaped_command%" "}"
+
+    cat > "$script_path" <<EOF
+#!/bin/bash
+# Description: $raw_name command
+
+$escaped_command
+EOF
+
+    chmod +x "$script_path"
+    echo "Created: $script_path"
 }
 
 # Argument validation
@@ -62,6 +112,12 @@ case "$COMMAND" in
             show_help
         fi
         run_script "$@"
+        ;;
+    add)
+        add_script "$@"
+        ;;
+    help)
+        show_help
         ;;
     *)
         echo "Error: Unknown command '$COMMAND'."
