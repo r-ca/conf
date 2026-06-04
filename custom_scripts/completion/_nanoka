@@ -14,13 +14,13 @@ _nanoka() {
     local option
     local -a script_options
 
-    [[ "$script_name" =~ '^[A-Za-z0-9._-]+$' ]] || return 1
+    [[ "$script_name" =~ ^[A-Za-z0-9._-]+$ ]] || return 1
     [[ -r "$script_path" ]] || return 1
 
     options_line="$(grep -m1 '^# Options:' "$script_path" 2>/dev/null)"
     [[ -n "$options_line" ]] || return 1
 
-    raw_options="${options_line#\# Options: }"
+    raw_options="${options_line#'# Options: '}"
     for option in ${(s: :)raw_options}; do
       [[ -n "$option" ]] || continue
       [[ "$option" == -* ]] || continue
@@ -35,6 +35,7 @@ _nanoka() {
 
   for f in "$SCRIPT_DIR"/*.sh(N); do
     [[ -f $f ]] || continue
+    # :t => basename, :r => remove extension
     scripts+=( "${f:t:r}" ) 
   done
 
